@@ -1,4 +1,4 @@
-package com.example.ufr_asso;
+package com.example.ufr_asso_android_01;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.ufr_asso", appContext.getPackageName());
+        assertEquals("com.example.ufr_asso_android_01", appContext.getPackageName());
     }
 }

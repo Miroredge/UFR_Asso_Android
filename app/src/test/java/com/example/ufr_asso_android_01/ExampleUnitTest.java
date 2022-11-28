@@ -1,4 +1,4 @@
-package com.example.ufr_asso;
+package com.example.ufr_asso_android_01;
 
 import org.junit.Test;
 

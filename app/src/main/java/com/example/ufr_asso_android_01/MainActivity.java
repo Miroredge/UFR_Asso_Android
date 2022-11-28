@@ -1,4 +1,4 @@
-package com.example.ufr_asso;
+package com.example.ufr_asso_android_01;
 
 import android.os.Bundle;
 
@@ -13,7 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.ufr_asso.databinding.ActivityMainBinding;
+import com.example.ufr_asso_android_01.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
