@@ -157,7 +157,7 @@
             android:layout_height="60dp"
             android:gravity="center_vertical|center_horizontal"
             android:layout_margin="10dp"
-            android:text="Se connecter"
+            android:text="Connexion"
             android:backgroundTint="@color/grisCustomClair"
             android:layout_gravity="center"
             />

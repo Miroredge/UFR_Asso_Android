@@ -21,7 +21,7 @@ public class Inscription extends AppCompatActivity {
         setContentView(R.layout.layout_register);
         getSupportActionBar().hide();
 
-        this.bienvenue = findViewById(R.id.retour);
+        this.bienvenue = findViewById(R.id.Retour);
         bienvenue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
