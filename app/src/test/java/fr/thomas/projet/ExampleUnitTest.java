@@ -1,4 +1,4 @@
-package com.example.ufr_asso_android_01;
+package fr.thomas.projet;
 
 import org.junit.Test;
 

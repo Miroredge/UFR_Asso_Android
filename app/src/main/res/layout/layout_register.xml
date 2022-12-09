@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+
+        android:gravity="center"
+        android:text="@string/inscription"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+
+        android:background="@color/bleuCustomFonce"
+        android:text="Nom complet"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomClair"
+        android:textColor="@color/bleuCustomFonce"
+        android:text="E-Mai"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomClair"
+        android:textColor="@color/bleuCustomFonce"
+        android:text="Adresse"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomClair"
+        android:textColor="@color/bleuCustomFonce"
+        android:text="Ville"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomClair"
+        android:textColor="@color/bleuCustomFonce"
+        android:text="Pays"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+
+        android:gravity="center"
+        android:text="Informations suplémentaires"
+        android:textSize="15dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomFonce"
+        android:text="Pseudo"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomFonce"
+        android:text="Mot de passe"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomFonce"
+        android:text="Mot de passe"
+        android:textColor="@color/white"
+        />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="J'accèpte les règles"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/retour"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Retour"
+
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@color/bleuCustomFonce"
+        android:textColor="@color/white"
+        />
+
+
+</LinearLayout>

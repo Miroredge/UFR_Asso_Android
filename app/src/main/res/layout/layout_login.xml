@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/TableLayoutLogin">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        />
+
+    <EditText
+        android:id="@+id/EmailLoginPageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:hint="E-mail"
+        android:maxLines="1"
+        android:autofillHints="E-mail"
+        android:inputType="textMultiLine|textNoSuggestions"
+        />
+    <EditText
+        android:id="@+id/PasswordLoginPageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:hint="Mot de passe"
+        android:maxLines="1"
+        android:autofillHints="Mot de passe"
+        android:inputType="textMultiLine|textNoSuggestions"
+        />
+
+    <TableRow
+        android:id="@+id/tableaulogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        >
+        <Button
+            android:id="@+id/retour"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity=""
+            android:layout_margin="10dp"
+            android:text="Retour"
+            android:backgroundTint="@color/grisCustomClair"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:id="@+id/valider"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity=""
+            android:layout_margin="10dp"
+            android:text="Connexion"
+            android:backgroundTint="@color/bleuCustomFonce"
+            android:layout_gravity="center"
+            />
+    </TableRow>
+</TableLayout>
