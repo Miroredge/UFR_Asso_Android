@@ -46,12 +46,12 @@
         android:layout_marginTop="50dp"
         >
         <Button
-            android:id="@+id/retour"
+            android:id="@+id/RedirectionInscription"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:gravity=""
             android:layout_margin="10dp"
-            android:text="Retour"
+            android:text="S'inscrire"
             android:backgroundTint="@color/grisCustomClair"
             android:layout_gravity="center"
             />

@@ -20,13 +20,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.login.LoginActivitytest"
             android:exported="false"
             android:label="@string/title_activity_login_activitytest" />
