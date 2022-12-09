@@ -4,15 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
 
         android:gravity="center"
         android:text="@string/inscription"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -20,9 +28,11 @@
         android:layout_marginRight="75dp"
         android:layout_marginLeft="75dp"
 
-        android:background="@color/bleuCustomFonce"
-        android:text="Nom complet"
-        android:textColor="@color/white"
+        android:hint="Nom complet"
+        android:maxLines="1"
+        android:autofillHints="Nom complet"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -32,9 +42,11 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomClair"
-        android:textColor="@color/bleuCustomFonce"
-        android:text="E-Mai"
+        android:hint="E-mail"
+        android:maxLines="1"
+        android:autofillHints="E-mail"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
 
         />
 
@@ -45,9 +57,11 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomClair"
-        android:textColor="@color/bleuCustomFonce"
-        android:text="Adresse"
+        android:hint="Adresse"
+        android:maxLines="1"
+        android:autofillHints="Adresse"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -57,9 +71,11 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomClair"
-        android:textColor="@color/bleuCustomFonce"
-        android:text="Ville"
+        android:hint="Ville"
+        android:maxLines="1"
+        android:autofillHints="Ville"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -69,15 +85,17 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomClair"
-        android:textColor="@color/bleuCustomFonce"
-        android:text="Pays"
+        android:hint="Pays"
+        android:maxLines="1"
+        android:autofillHints="Pays"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
 
         android:gravity="center"
         android:text="Informations suplémentaires"
@@ -90,9 +108,11 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomFonce"
-        android:text="Pseudo"
-        android:textColor="@color/white"
+        android:hint="Pseudo"
+        android:maxLines="1"
+        android:autofillHints="Pseudo"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -102,9 +122,11 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomFonce"
-        android:text="Mot de passe"
-        android:textColor="@color/white"
+        android:hint="Mot de passe"
+        android:maxLines="1"
+        android:autofillHints="Mot de passe"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -114,31 +136,42 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:background="@color/bleuCustomFonce"
-        android:text="Mot de passe"
-        android:textColor="@color/white"
+        android:hint="Mot de passe"
+        android:maxLines="1"
+        android:autofillHints="Mot de passe"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:textColor="@color/black"
         />
 
-    <CheckBox
+
+    <TableRow
+        android:id="@+id/tableaulogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="J'accèpte les règles"
-        android:textSize="15dp" />
-
-    <Button
-        android:id="@+id/retour"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Retour"
-
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp"
-
-        android:background="@color/bleuCustomFonce"
-        android:textColor="@color/white"
-        />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="0dp"
+        >
+        <Button
+            android:id="@+id/Retour"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="Se connecter"
+            android:backgroundTint="@color/grisCustomClair"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:id="@+id/valider"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_margin="10dp"
+            android:text="S'inscrire"
+            android:backgroundTint="@color/bleuCustomFonce"
+            android:layout_gravity="center"
+            />
+    </TableRow>
 
 
 </LinearLayout>
