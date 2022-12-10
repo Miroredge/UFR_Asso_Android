@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 password = (EditText) findViewById(R.id.PasswordLoginPageText);
                 if(email.getText().toString().equals("root") && password.getText().toString().equals("root")) {
 
-                    //Utilisateur user = new Utilisateur(email.getText().toString(),password.getText().toString());
+                    Utilisateur user = new Utilisateur(email.getText().toString(),password.getText().toString());
 
                     Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                     startActivity(openActivity);

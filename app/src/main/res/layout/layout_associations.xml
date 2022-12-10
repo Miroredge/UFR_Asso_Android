@@ -19,9 +19,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:textSize="50dp"
+            android:textSize="45dp"
             android:gravity="center"
-            android:text="Accueil"
+            android:text="Associations"
             android:textColor="@color/black"
             >
 
@@ -41,21 +41,66 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Adhérants"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/bleuCustomFonce"
             />
-        <Button
-            android:id="@+id/BouttonTresorerie"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Trésorerie"
-            />
+
         <Button
             android:id="@+id/BouttonEvenement"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Evenemnt"
+            android:text="Evenements"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/bleuCustomFonce"
             />
 
     </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/BouttonTresorie"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Trésorie"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/bleuCustomFonce"
+            />
+
+    </TableRow>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Vos associations:"
+        android:layout_marginTop="280dp"
+        />
+    
+    <ListView
+        android:id="@+id/ListView_Evenement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="200dp"
+        />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="120dp"
+        android:layout_marginHorizontal="40dp"
+        android:text="Créer une association"
+        android:backgroundTint="@color/bleuCustomFonce"
+        />
     
     <TableRow
         android:id="@+id/tableaulogin"

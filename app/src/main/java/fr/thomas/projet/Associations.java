@@ -6,6 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Associations extends AppCompatActivity {
 
@@ -16,6 +21,10 @@ public class Associations extends AppCompatActivity {
     private View adherants;
     private View evenement;
     private View tresorie;
+
+    ListView listview;
+    List list = new ArrayList();
+    ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +91,7 @@ public class Associations extends AppCompatActivity {
 
         //----------- Bouton Tresorie-----------
 
-        this.tresorie = findViewById(R.id.BouttonTresorerie);
+        this.tresorie = findViewById(R.id.BouttonTresorie);
         tresorie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,5 +99,21 @@ public class Associations extends AppCompatActivity {
                 startActivity(openActivity);
             }
         });
+
+
+        //----------- List View -----------
+
+        listview = (ListView) findViewById(R.id.ListView_Evenement);
+        list.add("Association 1");
+        list.add("Association 2");
+        list.add("Association 3");
+        list.add("Association 4");
+        list.add("Association 5");
+        list.add("Association 6");
+
+        adapter = new ArrayAdapter(Associations.this, android.R.layout.simple_list_item_1,list);
+        listview.setAdapter(adapter);
+
+
     }
 }
