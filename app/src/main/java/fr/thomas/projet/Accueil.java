@@ -15,14 +15,14 @@ public class Accueil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //----------- Creation de la page -----------
+        //----------- Creation de la page ---------
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout_accueil);
         getSupportActionBar().hide();
 
-        //----------- Boutton rejoindre asso -----------
+        //----------- Boutton rejoindre asso ---------
 
         this.associations = findViewById(R.id.Associations);
         associations.setOnClickListener(new View.OnClickListener() {
