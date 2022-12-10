@@ -13,6 +13,8 @@ public class Associations extends AppCompatActivity {
     private View associations;
     private View profile;
 
+    private View adherants;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //----------- Creation de la page ---------
@@ -52,6 +54,18 @@ public class Associations extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Profile.class);
+                startActivity(openActivity);
+                finish();
+            }
+        });
+
+        //----------- Bouton Adhérants-----------
+
+        this.adherants = findViewById(R.id.BouttonAdhérants);
+        adherants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Adherant.class);
                 startActivity(openActivity);
                 finish();
             }

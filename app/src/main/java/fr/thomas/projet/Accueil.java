@@ -1,21 +1,14 @@
 package fr.thomas.projet;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.w3c.dom.Text;
-
-public class Accueil extends AppCompatActivity {
+public class Accueil extends AppCompatActivity{
 
     private View acceuil;
     private View associations;
@@ -71,9 +64,20 @@ public class Accueil extends AppCompatActivity {
 //------------------------------------- PAGE ET NAVBAR -----------------------------------------
 //------------------------------------- CONTENUE DE LA PAGE ------------------------------------
 
-    //-----Messagz de bienvenue-----
+    //-----Message de bienvenue-----
+
         this.messagebienvenue = (TextView) findViewById(R.id.MessageDeBienvenue);
         messagebienvenue.setText("Vous n'avez aucune associations");
+
+        this.associations = findViewById(R.id.MessageDeBienvenue);
+        associations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Associations.class);
+                startActivity(openActivity);
+                finish();
+            }
+        });
 
     }
 }
