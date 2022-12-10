@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-public class Profil extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
 
     private View acceuil;
     private View associations;
@@ -50,7 +50,7 @@ public class Profil extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Profil.class);
+                Intent openActivity = new Intent(getApplicationContext(), Profile.class);
                 startActivity(openActivity);
                 finish();
             }
