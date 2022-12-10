@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
-public class Profile extends AppCompatActivity {
+public class Profil extends AppCompatActivity {
 
     private View acceuil;
     private View associations;
@@ -17,10 +17,9 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         //----------- Creation de la page ---------
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_profile);
+        setContentView(R.layout.layout_profil);
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         //----------- Bouton accueil -----------
 
         this.acceuil = findViewById(R.id.Accueil_button);
@@ -51,7 +50,7 @@ public class Profile extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Profile.class);
+                Intent openActivity = new Intent(getApplicationContext(), Profil.class);
                 startActivity(openActivity);
                 finish();
             }
