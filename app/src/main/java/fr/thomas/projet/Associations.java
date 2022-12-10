@@ -21,6 +21,8 @@ public class Associations extends AppCompatActivity {
     private View adherants;
     private View evenement;
     private View tresorie;
+    private View create;
+    private View rejoindre;
 
     ListView listview;
     List list = new ArrayList();
@@ -114,6 +116,28 @@ public class Associations extends AppCompatActivity {
         adapter = new ArrayAdapter(Associations.this, android.R.layout.simple_list_item_1,list);
         listview.setAdapter(adapter);
 
+
+        //----------- Bouton Creation asso-----------
+
+        this.create = findViewById(R.id.CreateAsso);
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), CreateAssociation.class);
+                startActivity(openActivity);
+            }
+        });
+
+        //----------- Bouton Rejoindre asso-----------
+
+        this.rejoindre = findViewById(R.id.RejoindreAsso);
+        rejoindre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), RejoindreAssociation.class);
+                startActivity(openActivity);
+            }
+        });
 
     }
 }

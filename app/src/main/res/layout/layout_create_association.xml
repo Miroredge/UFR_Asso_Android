@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BlancLight">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+
+        <EditText
+            android:id="@+id/CreateNomAsso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Nom de l'association"
+            android:maxLines="1"
+            android:autofillHints="Nom de l'association"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+        <EditText
+            android:id="@+id/CreateLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Location"
+            android:maxLines="1"
+            android:autofillHints="Location"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+
+        <EditText
+            android:id="@+id/CreateSiret"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Siret"
+            android:maxLines="1"
+            android:autofillHints="Siret"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+
+        <EditText
+            android:id="@+id/CreatePrix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Prix"
+            android:maxLines="1"
+            android:autofillHints="Prix"
+            android:inputType="numberDecimal"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+
+
+
+
+            <Button
+                android:id="@+id/valideNewAsso"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_margin="30dp"
+                android:text="Créer"
+                android:backgroundTint="@color/bleuCustomFonce"
+                android:layout_gravity="center" />
+
+
+
+        <TextView
+            android:id="@+id/messErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/Red"/>
+
+    </TableLayout>
+
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:text="Créer une Association"
+            android:textColor="@color/black"/>
+    </TableRow>
+</RelativeLayout>

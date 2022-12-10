@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BlancLight"
+    >
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/RejoindreAsso"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:text="Rejoindre une Association"
+            android:textColor="@color/black"/>
+
+    </TableRow>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choix association : "
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="20dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="100dp"
+        android:hint="Sélectionner une association"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:layout_marginBottom="100dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btJoinAsso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rejoindre"
+        android:layout_marginTop="550dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="120dp"
+        />
+
+    <TextView
+        android:id="@+id/ErreurSelectAsso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="610dp"
+        android:gravity="center"
+        android:textColor="@color/Red"
+        />
+
+
+
+</RelativeLayout>
