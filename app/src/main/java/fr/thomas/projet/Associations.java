@@ -1,29 +1,23 @@
 package fr.thomas.projet;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-public class Accueil extends AppCompatActivity {
+public class Associations extends AppCompatActivity {
 
     private View acceuil;
     private View associations;
     private View profile;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //----------- Creation de la page ---------
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_acceuil);
+        setContentView(R.layout.layout_associations);
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 

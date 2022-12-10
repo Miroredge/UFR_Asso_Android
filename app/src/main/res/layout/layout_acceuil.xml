@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/BlancLight">
@@ -9,9 +10,9 @@
         android:layout_height="100dp"
         android:textSize="50dp"
         android:gravity="center"
-        android:text="Profile"
+        android:text="Acceuil"
         />
-
+    
     <TableRow
         android:id="@+id/tableaulogin"
         android:layout_width="match_parent"
