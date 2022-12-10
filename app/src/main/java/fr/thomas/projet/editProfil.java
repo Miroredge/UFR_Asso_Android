@@ -17,8 +17,41 @@ public class editProfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_editprofil);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //----------- Bouton accueil -----------
+
+        this.acceuil = findViewById(R.id.Accueil_button);
+        acceuil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(openActivity);
+            }
+        });
+
+        //----------- Bouton Associations -----------
+
+        this.associations = findViewById(R.id.Association_Button);
+        associations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Associations.class);
+                startActivity(openActivity);
+            }
+        });
+
+        //----------- Bouton Profile -----------
+
+        this.profile = findViewById(R.id.Profile_button);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Profile.class);
+                startActivity(openActivity);
+            }
+        });
 
 
     }

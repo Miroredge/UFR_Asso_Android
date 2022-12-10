@@ -40,7 +40,7 @@
     </TableRow>
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -66,6 +66,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/modifier_profil_logo"
+        android:background="@drawable/bouton_arrondi"
+        android:scaleType="centerInside"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/NOMPrenom"
         />
