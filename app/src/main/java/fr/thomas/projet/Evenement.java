@@ -6,10 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Evenement extends AppCompatActivity {
 
     private View retour;
+
+    ListView listview;
+    List list = new ArrayList();
+    ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +39,27 @@ public class Evenement extends AppCompatActivity {
                 finish();
             }
         });
+
+        //----------- List View -----------
+
+        listview = (ListView) findViewById(R.id.ListView_Evenement);
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+
+        adapter = new ArrayAdapter(Evenement.this, android.R.layout.simple_list_item_1,list);
+        listview.setAdapter(adapter);
     }
 }
