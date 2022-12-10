@@ -4,13 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,7 +71,27 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    erreurmessagelogin.setText("Erreur: E-mail ou Mot de passe incorrect.");
+
+                    String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso?allowPublicKeyRetrieval=true&useSSL=false";
+                    String s = "";
+                    try {
+
+                        // StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        // StrictMode.setThreadPolicy(policy);
+
+                        Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+                        Statement statement = connect.createStatement();
+                        ResultSet resultset = statement.executeQuery("SELECT GDR FROM usr WHERE EML = 'aureane.user@gmail.com'");
+                        while(resultset.next()) {
+                            s += resultset.getString(1);
+                            erreurmessagelogin.setText(s);
+                        }
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        erreurmessagelogin.setText(e.toString());
+                    }
+
                 }
             }
         });
