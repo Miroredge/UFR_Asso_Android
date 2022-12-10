@@ -15,8 +15,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
 
         android:gravity="center"
         android:text="@string/inscription"
@@ -57,37 +57,9 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="10dp"
 
-        android:hint="Adresse"
+        android:hint="Numero de telephone"
         android:maxLines="1"
-        android:autofillHints="Adresse"
-        android:inputType="textMultiLine|textNoSuggestions"
-        android:textColor="@color/black"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="10dp"
-
-        android:hint="Ville"
-        android:maxLines="1"
-        android:autofillHints="Ville"
-        android:inputType="textMultiLine|textNoSuggestions"
-        android:textColor="@color/black"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="10dp"
-
-        android:hint="Pays"
-        android:maxLines="1"
-        android:autofillHints="Pays"
+        android:autofillHints="Numero de telephone"
         android:inputType="textMultiLine|textNoSuggestions"
         android:textColor="@color/black"
         />
@@ -95,11 +67,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
 
         android:gravity="center"
         android:text="Informations suplémentaires"
-        android:textSize="15dp" />
+        android:textSize="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -141,6 +113,15 @@
         android:autofillHints="Mot de passe"
         android:inputType="textMultiLine|textNoSuggestions"
         android:textColor="@color/black"
+        />
+    
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_gravity="center"
+        android:text="Accepter les règles"
         />
 
 
