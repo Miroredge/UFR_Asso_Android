@@ -25,7 +25,7 @@ public class Accueil extends AppCompatActivity {
 
 
         navigationView = findViewById(R.id.navbar_bottom);
-        getSupportFragmentManager().beginTransaction().replace(R.id.body, new Home()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.body, new Acceuil_fragment()).commit();
         navigationView.setSelectedItemId(R.id.navigation_menu);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,15 +34,15 @@ public class Accueil extends AppCompatActivity {
                 Fragment fragment = null;
                 switch (item.getItemId()){
                     case R.id.navigation_menu:
-                        fragment = new Home();
+                        fragment = new Acceuil_fragment();
                         break;
 
                     case R.id.navigation_association:
-                        fragment = new Associations();
+                        fragment = new Associations_fragment();
                         break;
 
                     case R.id.navigation_profile:
-                        fragment = new Profile();
+                        fragment = new Profile_fragment();
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.body, fragment).commit();
