@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/LinearLayoutRegister">
 
     <ImageView
         android:layout_width="100dp"
@@ -23,6 +24,7 @@
         android:textSize="20dp" />
 
     <EditText
+        android:id="@+id/NomCompletRegisterPage"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="75dp"
@@ -36,6 +38,7 @@
         />
 
     <EditText
+        android:id="@+id/EmailRegisterPage"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="75dp"
@@ -51,6 +54,7 @@
         />
 
     <EditText
+        android:id="@+id/NumTelephoneRegisterPage"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="75dp"
@@ -74,6 +78,7 @@
         android:textSize="10dp" />
 
     <EditText
+        android:id="@+id/PseudoRegisterPage"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="75dp"
@@ -88,6 +93,7 @@
         />
 
     <EditText
+        android:id="@+id/MotDePasseRegisterPage"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="75dp"
@@ -102,6 +108,7 @@
         />
 
     <EditText
+        android:id="@+id/VerificationMotDePasseRegisterPage"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="75dp"
@@ -114,8 +121,9 @@
         android:inputType="textMultiLine|textNoSuggestions"
         android:textColor="@color/black"
         />
-    
+
     <CheckBox
+        android:id="@+id/CheckBoxRegles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="75dp"
