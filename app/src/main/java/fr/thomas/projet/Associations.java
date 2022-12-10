@@ -15,6 +15,7 @@ public class Associations extends AppCompatActivity {
 
     private View adherants;
     private View evenement;
+    private View tresorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,18 @@ public class Associations extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Evenement.class);
+                startActivity(openActivity);
+                finish();
+            }
+        });
+
+        //----------- Bouton Tresorie-----------
+
+        this.tresorie = findViewById(R.id.BouttonTresorerie);
+        tresorie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Tresorie.class);
                 startActivity(openActivity);
                 finish();
             }
