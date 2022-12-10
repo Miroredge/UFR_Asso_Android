@@ -33,7 +33,6 @@ public class Associations extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -45,7 +44,6 @@ public class Associations extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -57,7 +55,6 @@ public class Associations extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Profile.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -69,7 +66,6 @@ public class Associations extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Adherant.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -81,7 +77,6 @@ public class Associations extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Evenement.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -93,7 +88,6 @@ public class Associations extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Tresorie.class);
                 startActivity(openActivity);
-                finish();
             }
         });
     }

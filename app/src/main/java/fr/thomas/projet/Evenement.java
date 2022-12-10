@@ -14,7 +14,9 @@ import java.util.List;
 
 public class Evenement extends AppCompatActivity {
 
-    private View retour;
+    private View acceuil;
+    private View associations;
+    private View profile;
 
     ListView listview;
     List list = new ArrayList();
@@ -28,13 +30,37 @@ public class Evenement extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //----------- Bouton Retour -----------
+        //----------- Bouton accueil -----------
 
-        this.retour = findViewById(R.id.Retour_Button_From_Evenement_To_Associations);
-        retour.setOnClickListener(new View.OnClickListener() {
+        this.acceuil = findViewById(R.id.Accueil_button);
+        acceuil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(openActivity);
+                finish();
+            }
+        });
+
+        //----------- Bouton Associations -----------
+
+        this.associations = findViewById(R.id.Association_Button);
+        associations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Associations.class);
+                startActivity(openActivity);
+                finish();
+            }
+        });
+
+        //----------- Bouton Profile -----------
+
+        this.profile = findViewById(R.id.Profile_button);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Profile.class);
                 startActivity(openActivity);
                 finish();
             }

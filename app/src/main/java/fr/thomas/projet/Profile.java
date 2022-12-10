@@ -28,7 +28,6 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -40,7 +39,6 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -52,7 +50,6 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Profile.class);
                 startActivity(openActivity);
-                finish();
             }
         });
     }

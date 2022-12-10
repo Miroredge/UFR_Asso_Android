@@ -34,7 +34,6 @@ public class Accueil extends AppCompatActivity{
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -46,7 +45,6 @@ public class Accueil extends AppCompatActivity{
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
@@ -58,7 +56,6 @@ public class Accueil extends AppCompatActivity{
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Profile.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 //------------------------------------- PAGE ET NAVBAR -----------------------------------------
@@ -75,7 +72,6 @@ public class Accueil extends AppCompatActivity{
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                 startActivity(openActivity);
-                finish();
             }
         });
 
