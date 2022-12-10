@@ -72,12 +72,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
 
-                    String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso?allowPublicKeyRetrieval=true&useSSL=false";
+                    String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
                     String s = "";
                     try {
 
-                        // StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                        // StrictMode.setThreadPolicy(policy);
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        StrictMode.setThreadPolicy(policy);
 
                         Connection connect = DriverManager.getConnection(url, "ROOT", "root");
                         Statement statement = connect.createStatement();
