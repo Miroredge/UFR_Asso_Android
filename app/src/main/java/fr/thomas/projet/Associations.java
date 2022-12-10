@@ -14,6 +14,7 @@ public class Associations extends AppCompatActivity {
     private View profile;
 
     private View adherants;
+    private View evenement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,18 @@ public class Associations extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Adherant.class);
+                startActivity(openActivity);
+                finish();
+            }
+        });
+
+        //----------- Bouton Evenement-----------
+
+        this.evenement = findViewById(R.id.BouttonEvenement);
+        evenement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Evenement.class);
                 startActivity(openActivity);
                 finish();
             }
