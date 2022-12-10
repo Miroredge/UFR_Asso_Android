@@ -19,6 +19,8 @@ public class Inscription extends AppCompatActivity {
     private View accueil;
     LinearLayout layout;
 
+    TextView erreurmessageregister;
+
     EditText NomComplet;
     EditText Email;
     EditText NumTel;
@@ -48,14 +50,9 @@ public class Inscription extends AppCompatActivity {
             }
         });
 
-        //----------- Création du text erreur -----------
-        this.layout = (LinearLayout) findViewById(R.id.LinearLayoutRegister);
-        TextView erreur = new TextView(this);
-        erreur.setText("Erreur: E-mail ou mot de pass incorect.");
-        erreur.setTextColor(getResources().getColor(R.color.bleuCustomFonce));
-        erreur.setTextSize(25);
-
         //----------- Boutton s'inscrire -----------
+
+        this.erreurmessageregister = (TextView) findViewById(R.id.ErreurRegisterMessage);
 
         this.accueil = findViewById(R.id.valider);
         accueil.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +67,7 @@ public class Inscription extends AppCompatActivity {
                 CheckBoxRegles = (CheckBox) findViewById(R.id.CheckBoxRegles);
                 if(NomComplet.getText().toString().isEmpty() || Email.getText().toString().isEmpty() || NumTel.getText().toString().isEmpty()
                 || Pseudo.getText().toString().isEmpty() || Mdp.getText().toString().isEmpty() || MdpVerify.getText().toString().isEmpty() || !CheckBoxRegles.isChecked()){
-                    layout.addView(erreur);
+                    erreurmessageregister.setText("Erreur: Veuillez remplir tous les champs");
                 }
                 else{
                     Intent openActivity = new Intent(getApplicationContext(), Accueil.class);

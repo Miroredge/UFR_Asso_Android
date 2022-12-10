@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText password;
 
+    TextView erreurmessagelogin;
+
     private String bddemail = "root";
     private String bddmdp = "root";
 
@@ -31,16 +33,6 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout_login);
         getSupportActionBar().hide();
-
-
-
-        //----------- Création du text erreur -----------
-        this.layout = (TableLayout) findViewById(R.id.TableLayoutLogin);
-        TextView erreur = new TextView(this);
-        erreur.setText("Erreur: E-mail ou mot de pass incorect.");
-        erreur.setTextColor(getResources().getColor(R.color.bleuCustomFonce));
-        erreur.setTextSize(25);
-
 
         //----------- Bouton S'inscrire -----------
 
@@ -55,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //----------- Bouton connexion -----------
+
+        this.erreurmessagelogin = (TextView) findViewById(R.id.ErreurLoginMessage);
 
         this.accueil = findViewById(R.id.valider);
         accueil.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    layout.addView(erreur);
+                    erreurmessagelogin.setText("Erreur: E-mail ou Mot de passe incorrect.");
                 }
             }
         });

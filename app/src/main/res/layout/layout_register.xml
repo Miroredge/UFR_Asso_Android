@@ -132,13 +132,23 @@
         android:text="Accepter les règles"
         />
 
+    <TextView
+        android:id="@+id/ErreurRegisterMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="75dp"
+        android:layout_marginLeft="75dp"
+        android:text=""
+        android:textColor="@color/Red"
+        android:layout_marginTop="10dp"
+        />
+
 
     <TableRow
         android:id="@+id/tableaulogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_marginTop="0dp"
         >
         <Button
             android:id="@+id/Retour"
