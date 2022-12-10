@@ -1,50 +1,55 @@
 package fr.thomas.projet;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
+import android.view.MenuItem;
 import android.view.WindowManager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Accueil extends AppCompatActivity {
 
-    private View associations;
-    private View profile;
+    BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //----------- Creation de la page ---------
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.layout_accueil);
+        setContentView(R.layout.bar_navigation_main);
+
         getSupportActionBar().hide();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //----------- Boutton rejoindre asso ---------
 
-        this.associations = findViewById(R.id.Associations);
-        associations.setOnClickListener(new View.OnClickListener() {
+        navigationView = findViewById(R.id.navbar_bottom);
+        getSupportFragmentManager().beginTransaction().replace(R.id.body, new Home()).commit();
+        navigationView.setSelectedItemId(R.id.navigation_menu);
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Associations.class);
-                startActivity(openActivity);
-                finish();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
+                switch (item.getItemId()){
+                    case R.id.navigation_menu:
+                        fragment = new Home();
+                        break;
+
+                    case R.id.navigation_association:
+                        fragment = new Associations();
+                        break;
+
+                    case R.id.navigation_profile:
+                        fragment = new Profile();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.body, fragment).commit();
+
+                return true;
             }
         });
 
-
-        //----------- Boutton profile -----------
-
-        this.profile = findViewById(R.id.Profile);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Profile.class);
-                startActivity(openActivity);
-                finish();
-            }
-        });
     }
 }
