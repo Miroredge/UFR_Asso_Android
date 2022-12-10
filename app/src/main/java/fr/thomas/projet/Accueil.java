@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.w3c.dom.Text;
 
 public class Accueil extends AppCompatActivity {
 
@@ -18,9 +21,12 @@ public class Accueil extends AppCompatActivity {
     private View associations;
     private View profile;
 
+    private TextView messagebienvenue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//------------------------------------- PAGE ET NAVBAR -----------------------------------------
         //----------- Creation de la page ---------
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_acceuil);
@@ -62,5 +68,12 @@ public class Accueil extends AppCompatActivity {
                 finish();
             }
         });
+//------------------------------------- PAGE ET NAVBAR -----------------------------------------
+//------------------------------------- CONTENUE DE LA PAGE ------------------------------------
+
+    //-----Messagz de bienvenue-----
+        this.messagebienvenue = (TextView) findViewById(R.id.MessageDeBienvenue);
+        messagebienvenue.setText("Vous n'avez aucune associations");
+
     }
 }

@@ -5,12 +5,36 @@
     android:layout_height="match_parent"
     android:background="@color/BlancLight">
 
-    <TextView
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:textSize="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:text="Accueil"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+    </TableRow>
+    
+    <TextView
+        android:id="@+id/MessageDeBienvenue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text=""
         android:gravity="center"
-        android:text="Acceuil"
         />
     
     <TableRow
