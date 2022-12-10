@@ -1,32 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/BlancLight">
 
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:text="Trésorerie"
+            android:textColor="@color/black"
+            />
+    </TableRow>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Solde : 0"
         android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textSize="30dp"
-        android:layout_marginTop="250dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="250dp"
         android:layout_marginRight="50dp"
-        android:textColor="@color/black"
         android:background="@color/bleuCustomFonce"
-        />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Trésorerie"
-        android:layout_gravity="center"
-        android:textColor="@color/black"
-        android:textSize="50dp"
+        android:text="Solde : 0"
         android:textAlignment="center"
-        />
+        android:textColor="@color/black"
+        android:textSize="30dp" 
+        android:padding="15dp"/>
+
 </RelativeLayout>
