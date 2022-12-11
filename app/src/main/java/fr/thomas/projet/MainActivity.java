@@ -83,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         erreurmessagelogin.setText("Erreur: E-Mail ou Mot de passe incorrect.");
                     }
 
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        erreurmessagelogin.setText(e.toString());
-                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    erreurmessagelogin.setText(e.toString());
+                }
 
                 }
 
