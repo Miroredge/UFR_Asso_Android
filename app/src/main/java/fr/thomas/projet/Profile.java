@@ -110,17 +110,20 @@ public class Profile extends AppCompatActivity {
 
             while (resultSet.next()) {
                 nom_prenom.setText(resultSet.getString(1) + " " + resultSet.getString(2));
-                Blob avatarBlob = resultSet.getBlob("PRF_PIC");
 
-                if (resultSet.wasNull()) {
+                if(resultSet.getString("PRF_PIC").equals("NULL")){
                     nom_prenom.setText("Pas de pp");
                 }
-                byte[] imageByte = avatarBlob.getBytes(1, (int) avatarBlob.length());
-                Bitmap imgBM_Avatar = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+                else {
+                    Blob avatarBlob = resultSet.getBlob("PRF_PIC");
+                    byte[] imageByte = avatarBlob.getBytes(1, (int) avatarBlob.length());
+                    Bitmap imgBM_Avatar = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
 
-                ImageView avatar = findViewById(R.id.avatar);
-                avatar.setImageBitmap(imgBM_Avatar);
-                //avatar.setAlpha(0);
+                    ImageView avatar = findViewById(R.id.avatar);
+                    avatar.setImageBitmap(imgBM_Avatar);
+                    //avatar.setAlpha(0);
+                }
+
 
             }
         } catch (SQLException e) {
