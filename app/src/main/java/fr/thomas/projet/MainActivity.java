@@ -62,30 +62,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 email = (EditText) findViewById(R.id.EmailLoginPageText);
                 password = (EditText) findViewById(R.id.PasswordLoginPageText);
-                if(email.getText().toString().equals("root") && password.getText().toString().equals("root")) {
 
-                    Utilisateur user = new Utilisateur(email.getText().toString(),password.getText().toString());
+                String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+                String s = "";
+                try {
 
-                    Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
-                    startActivity(openActivity);
-                    finish();
-                }
-                else{
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
 
-                    String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
-                    String s = "";
-                    try {
+                    Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+                    Statement statement = connect.createStatement();
+                    ResultSet resultset = statement.executeQuery("SELECT GDR FROM usr WHERE EML = '"+email.getText().toString()+"' AND PWD='"+password.getText().toString()+"'");
 
-                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                        StrictMode.setThreadPolicy(policy);
-
-                        Connection connect = DriverManager.getConnection(url, "ROOT", "root");
-                        Statement statement = connect.createStatement();
-                        ResultSet resultset = statement.executeQuery("SELECT GDR FROM usr WHERE EML = 'aureane.user@gmail.com'");
-                        while(resultset.next()) {
-                            s += resultset.getString(1);
-                            erreurmessagelogin.setText(s);
-                        }
+                    if (resultset.next()){
+                        Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                        startActivity(openActivity);
+                        finish();
+                    }
+                    else{
+                        erreurmessagelogin.setText("Erreur: E-Mail ou Mot de passe incorrect.");
+                    }
 
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -93,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
-            }
+
         });
     }
 }
