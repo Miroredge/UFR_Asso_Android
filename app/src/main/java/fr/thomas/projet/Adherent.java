@@ -17,9 +17,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Adherant extends AppCompatActivity {
+public class Adherent extends AppCompatActivity {
 
-    private View acceuil;
+    private View accueil;
     private View associations;
     private View profile;
 
@@ -36,8 +36,8 @@ public class Adherant extends AppCompatActivity {
 
         //----------- Bouton accueil -----------
 
-        this.acceuil = findViewById(R.id.Accueil_button);
-        acceuil.setOnClickListener(new View.OnClickListener() {
+        this.accueil = findViewById(R.id.Accueil_button);
+        accueil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
@@ -72,7 +72,7 @@ public class Adherant extends AppCompatActivity {
 
 //------------------------------------- PAGE ET NAVBAR -----------------------------------------
 
-        String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+        String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
 
         try {
 

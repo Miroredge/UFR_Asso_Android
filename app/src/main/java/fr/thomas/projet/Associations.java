@@ -83,7 +83,7 @@ public class Associations extends AppCompatActivity {
         adherants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Adherant.class);
+                Intent openActivity = new Intent(getApplicationContext(), Adherent.class);
                 startActivity(openActivity);
             }
         });
