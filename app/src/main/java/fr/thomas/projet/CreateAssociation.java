@@ -25,6 +25,7 @@ public class CreateAssociation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.layout_create_association);
@@ -44,12 +45,9 @@ public class CreateAssociation extends AppCompatActivity {
 
                 if(Nom.getText().toString().isEmpty() || Location.getText().toString().isEmpty() || Siret.getText().toString().isEmpty() || Prix.getText().toString().isEmpty() ){
                     erreur.setText("Erreur: Veuillez remplir tous les champs");
-
                 }
                 else{
-                    Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
-                    startActivity(openActivity);
-                    finish();
+                    erreur.setText("Création effectué.");
                 }
             }
 
