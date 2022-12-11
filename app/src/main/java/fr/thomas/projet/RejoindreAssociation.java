@@ -44,7 +44,7 @@ public class RejoindreAssociation extends AppCompatActivity {
 
         //----------- Requete Nom Asso -----------
 
-        String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+        String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
         String s = "";
         try {
 
