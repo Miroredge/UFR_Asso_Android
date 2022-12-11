@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,9 +19,13 @@ import android.widget.TextView;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Blob;
+import java.io.ByteArrayInputStream;
+
 
 public class Profile extends AppCompatActivity {
 
@@ -85,14 +90,32 @@ public class Profile extends AppCompatActivity {
         TextView nom_prenom = findViewById(R.id.NOMPrenom);
         nom_prenom.setText("ygjhvb");
 
-        String url = "jdbc:mysql://localost:3306/ufr_asso";//?allowPublicKeyRetrieval=true&useSSL=false";
+        String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
         String s = "";
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso?allowPublicKeyRetrieval=true&useSSL=false", "root", "");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT GDR FROM usr WHERE EML = 'aureane.user@gmail.com'");
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            String a = "xiomi.user@gmail.com";
+            Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+            PreparedStatement statement = connect.prepareStatement("SELECT FST_NAM, LST_NAM, PRF_PIC FROM usr WHERE EML = ?");
+            statement.setString(1, a);
+            ResultSet resultSet = statement.executeQuery();
+
             while (resultSet.next()) {
-                nom_prenom.setText(resultSet.getString(1));
+                nom_prenom.setText(resultSet.getString(1) + " " + resultSet.getString(2));
+                Blob avatarBlob = resultSet.getBlob("PRF_PIC");
+
+                if (resultSet.wasNull()) {
+                    nom_prenom.setText("Pas de pp");
+                }
+                byte[] imageByte = avatarBlob.getBytes(1, (int) avatarBlob.length());
+                Bitmap imgBM_Avatar = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+
+                ImageView avatar = findViewById(R.id.avatar);
+                avatar.setImageBitmap(imgBM_Avatar);
+                avatar.setAlpha(0);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
