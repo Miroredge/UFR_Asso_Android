@@ -132,19 +132,6 @@ public class Inscription extends AppCompatActivity {
                     e.printStackTrace();
                     erreurmessageregister.setText(e.toString());
                 }
-
-                /*if(NomComplet.getText().toString().isEmpty() || Email.getText().toString().isEmpty() || NumTel.getText().toString().isEmpty()
-                || Pseudo.getText().toString().isEmpty() || Mdp.getText().toString().isEmpty() || MdpVerify.getText().toString().isEmpty() || !CheckBoxRegles.isChecked()) {
-                    erreurmessageregister.setText("Erreur: Veuillez remplir tous les champs");
-                }
-                else if(){
-
-                }
-                else{
-                    Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
-                    startActivity(openActivity);
-                    finish();
-                }*/
             }
         });
     }

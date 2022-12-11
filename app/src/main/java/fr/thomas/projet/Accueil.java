@@ -16,9 +16,9 @@ public class Accueil extends AppCompatActivity{
 
     private TextView messagebienvenue;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 //------------------------------------- PAGE ET NAVBAR -----------------------------------------
         //----------- Creation de la page ---------
         super.onCreate(savedInstanceState);
@@ -64,7 +64,7 @@ public class Accueil extends AppCompatActivity{
     //-----Message de bienvenue-----
 
         this.messagebienvenue = (TextView) findViewById(R.id.MessageDeBienvenue);
-        messagebienvenue.setText("Vous n'avez aucune associations");
+        messagebienvenue.setText("Salut");
 
         this.associations = findViewById(R.id.MessageDeBienvenue);
         associations.setOnClickListener(new View.OnClickListener() {

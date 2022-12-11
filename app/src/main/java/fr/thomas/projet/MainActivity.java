@@ -15,11 +15,14 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.mysql.jdbc.Util;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     ResultSet resultset = statement.executeQuery("SELECT GDR FROM usr WHERE EML = '"+email.getText().toString()+"' AND PWD='"+password.getText().toString()+"'");
 
                     if (resultset.next()){
+
                         SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString("EML", "valentin.user@gmail.com");
