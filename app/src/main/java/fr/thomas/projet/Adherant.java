@@ -4,10 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Adherant extends AppCompatActivity {
 
@@ -16,7 +24,8 @@ public class Adherant extends AppCompatActivity {
     private View profile;
 
     GridView grid;
-    String[] tab = new String[60];
+
+    ArrayList<String> listName=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +69,36 @@ public class Adherant extends AppCompatActivity {
                 finish();
             }
         });
-//------------------------------------- PAGE ET NAVBAR -----------------------------------------
-        //Autres
 
-        for(int i=0;i<tab.length;i+=4){
-            tab[i]="Paul";
-            tab[i+1]="Janvier";
-            tab[i+2]="L2";
-            tab[i+3]="2022/11/18";
+//------------------------------------- PAGE ET NAVBAR -----------------------------------------
+
+        String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+
+        try {
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+            Statement statement = connect.createStatement();
+            ResultSet resultset = statement.executeQuery("SELECT FST_NAM,LST_NAM,PSD,EML FROM usr ");
+
+            while(resultset.next()){
+                listName.add(resultset.getString("FST_NAM"));
+                listName.add(resultset.getString("LST_NAM"));
+                listName.add(resultset.getString("PSD"));
+                listName.add(resultset.getString("EML"));
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
+
+
         grid=(GridView)findViewById(R.id.grid);
-        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,tab);
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listName);
         grid.setAdapter(adapter);
 
     }
