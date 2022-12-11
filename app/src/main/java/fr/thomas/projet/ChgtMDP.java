@@ -2,13 +2,56 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ChgtMDP extends AppCompatActivity {
+
+    TextView erreur;
+
+    private View Valide;
+
+    EditText Nom;
+    EditText Location;
+    EditText Siret;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chgt_mdp);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.layout_create_association);
+
+
+        this.erreur = (TextView) findViewById(R.id.messErr);
+
+        this.Valide = findViewById(R.id.valideNewAsso);
+        Valide.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Nom = (EditText) findViewById(R.id.CreateNomAsso);
+                Location = (EditText) findViewById(R.id.CreateLocation);
+                Siret = (EditText) findViewById(R.id.CreateSiret);
+
+                if(Nom.getText().toString().isEmpty() || Location.getText().toString().isEmpty() || Siret.getText().toString().isEmpty()){
+                    erreur.setText("Erreur: Veuillez remplir tous les champs");
+
+                }
+                else{
+                    Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                    startActivity(openActivity);
+                    finish();
+                }
+            }
+
+        });
     }
 }
