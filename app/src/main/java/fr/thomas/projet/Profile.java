@@ -137,7 +137,6 @@ public class Profile extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ouvre le lien internet dans le navigateur par défaut
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/"));
                 startActivity(intent);
             }
