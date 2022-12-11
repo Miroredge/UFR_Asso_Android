@@ -148,7 +148,7 @@ public class Profile extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), CreateAssociation.class);
+                Intent openActivity = new Intent(getApplicationContext(), ChgtMDP.class);
                 startActivity(openActivity);
             }
         });

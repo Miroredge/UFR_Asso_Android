@@ -2,6 +2,7 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,32 +17,33 @@ public class ChgtMDP extends AppCompatActivity {
 
     private View Valide;
 
-    EditText Nom;
-    EditText Location;
-    EditText Siret;
+    EditText MDP;
+    EditText NEW;
+    EditText CONFIRM;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.layout_create_association);
+        setContentView(R.layout.layout_chgtmdp);
 
 
-        this.erreur = (TextView) findViewById(R.id.messErr);
+        this.erreur = (TextView) findViewById(R.id.messErreur);
 
-        this.Valide = findViewById(R.id.valideNewAsso);
+        this.Valide = findViewById(R.id.valideChgt);
         Valide.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Nom = (EditText) findViewById(R.id.CreateNomAsso);
-                Location = (EditText) findViewById(R.id.CreateLocation);
-                Siret = (EditText) findViewById(R.id.CreateSiret);
+                MDP = (EditText) findViewById(R.id.ActuelMDP);
+                NEW = (EditText) findViewById(R.id.NewMDP);
+                CONFIRM = (EditText) findViewById(R.id.ConfirmMDP);
 
-                if(Nom.getText().toString().isEmpty() || Location.getText().toString().isEmpty() || Siret.getText().toString().isEmpty()){
+                if(MDP.getText().toString().isEmpty() || NEW.getText().toString().isEmpty() || CONFIRM.getText().toString().isEmpty()){
                     erreur.setText("Erreur: Veuillez remplir tous les champs");
 
                 }
