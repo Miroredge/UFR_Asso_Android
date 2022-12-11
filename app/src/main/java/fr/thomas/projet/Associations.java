@@ -21,7 +21,7 @@ public class Associations extends AppCompatActivity {
     private View associations;
     private View profile;
 
-    private View adherants;
+    private View adherents;
     private View evenement;
     private View tresorie;
     private View create;
@@ -79,8 +79,8 @@ public class Associations extends AppCompatActivity {
 
         //----------- Bouton Adhérants-----------
 
-        this.adherants = findViewById(R.id.BouttonAdhérants);
-        adherants.setOnClickListener(new View.OnClickListener() {
+        this.adherents = findViewById(R.id.BouttonAdhérants);
+        adherents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Adherent.class);
