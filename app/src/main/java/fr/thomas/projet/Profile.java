@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -106,17 +108,16 @@ public class Profile extends AppCompatActivity {
                 startActivity(openActivity);
             }
         });
-        
-        configuration_View();
-        set_Text();
-    }
 
-    private void set_Text() {
-        link.setText("https://discord.com/");
-        link.setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    private void configuration_View() {
-         link = findViewById(R.id.link);
+// dans votre classe Java
+                Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // ouvre le lien internet dans le navigateur par défaut
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/"));
+                startActivity(intent);
+            }
+        });
     }
 }
