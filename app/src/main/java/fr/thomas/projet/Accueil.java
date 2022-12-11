@@ -2,7 +2,9 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -64,7 +66,9 @@ public class Accueil extends AppCompatActivity{
     //-----Message de bienvenue-----
 
         this.messagebienvenue = (TextView) findViewById(R.id.MessageDeBienvenue);
-        messagebienvenue.setText("Salut");
+        SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        String a = sharedPref.getString("EML", "");
+        messagebienvenue.setText(a);
 
         this.associations = findViewById(R.id.MessageDeBienvenue);
         associations.setOnClickListener(new View.OnClickListener() {

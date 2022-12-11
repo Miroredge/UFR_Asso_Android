@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                         SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putString("EML", "valentin.user@gmail.com");
+                        editor.putString("EML", email.getText().toString());
                         editor.commit();
 
                         Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
