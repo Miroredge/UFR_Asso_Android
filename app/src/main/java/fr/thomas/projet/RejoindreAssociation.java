@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,13 +14,21 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class RejoindreAssociation extends AppCompatActivity {
 
     TextView ErreurSelectAsso;
 
     private View btJoinAsso;
 
-    String[] asso = {"asso1","asso2","asso3","asso4","asso5","asso6","asso7","asso6","asso7"};
+
+    ArrayList<String> assos=new ArrayList<>();
     String item ="";
 
     AutoCompleteTextView AutoCompleteTxt;
@@ -33,8 +42,32 @@ public class RejoindreAssociation extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout_rejoindre_assocition);
 
+        //----------- Requete Nom Asso -----------
+
+        String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+        String s = "";
+        try {
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+            Statement statement = connect.createStatement();
+            ResultSet resultset = statement.executeQuery("SELECT NAM FROM aso");
+
+
+            while(resultset.next()) {
+                assos.add(resultset.getString("NAM"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+
         AutoCompleteTxt = findViewById(R.id.auto_complete_txt);
-        adapterItem=new ArrayAdapter<String>(this,R.layout.list_rejoindre,asso);
+        adapterItem=new ArrayAdapter<String>(this,R.layout.list_rejoindre,assos);
 
         AutoCompleteTxt.setAdapter(adapterItem);
 
@@ -44,8 +77,6 @@ public class RejoindreAssociation extends AppCompatActivity {
                 item = parent.getItemAtPosition(i).toString();
                 Toast.makeText(getApplicationContext(),"Association :"+item,Toast.LENGTH_SHORT).show();
             }
-
-
 
         });
 

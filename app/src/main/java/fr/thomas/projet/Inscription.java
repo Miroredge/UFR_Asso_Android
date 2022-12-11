@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,6 +13,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Random;
 
 public class Inscription extends AppCompatActivity {
 
@@ -65,15 +73,78 @@ public class Inscription extends AppCompatActivity {
                 Mdp = (EditText) findViewById(R.id.MotDePasseRegisterPage);
                 MdpVerify = (EditText) findViewById(R.id.VerificationMotDePasseRegisterPage);
                 CheckBoxRegles = (CheckBox) findViewById(R.id.CheckBoxRegles);
-                if(NomComplet.getText().toString().isEmpty() || Email.getText().toString().isEmpty() || NumTel.getText().toString().isEmpty()
-                || Pseudo.getText().toString().isEmpty() || Mdp.getText().toString().isEmpty() || MdpVerify.getText().toString().isEmpty() || !CheckBoxRegles.isChecked()){
+
+                //Email.getText().toString();
+                //Mdp.getText().toString();
+                //MdpVerify.getText().toString();
+                //NumTel.getText().toString();
+
+                String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+
+
+                try {
+
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+                    Statement statement = connect.createStatement();
+                    ResultSet resultset = statement.executeQuery("SELECT * FROM usr WHERE EML = '"+Email.getText().toString()+"'");
+
+                    if(NomComplet.getText().toString().isEmpty() || Email.getText().toString().isEmpty() || NumTel.getText().toString().isEmpty() || Pseudo.getText().toString().isEmpty() || Mdp.getText().toString().isEmpty() || MdpVerify.getText().toString().isEmpty() || !CheckBoxRegles.isChecked()) {
+                        erreurmessageregister.setText("Erreur: Veuillez remplir tous les champs");
+                    }
+                    else if (resultset.next()){
+                        erreurmessageregister.setText("Erreur: E-Mail déjà utilisé.");
+                    }
+                    else if(statement.executeQuery("SELECT * FROM usr WHERE PSD = '"+Pseudo.getText().toString()+"'").next()){
+                        erreurmessageregister.setText("Erreur: Pseudo déjà utilisé.");
+                    }
+                    else{
+                        if(Mdp.getText().toString().equals(MdpVerify.getText().toString())){
+                            String pseudo = Pseudo.getText().toString();
+                            String email = Email.getText().toString();
+                            String phone = NumTel.getText().toString();
+                            String nom = NomComplet.getText().toString();
+                            String mdp = Mdp.getText().toString();
+
+                            String id = "";
+
+                            for(int i = 0; i < 10; i++) {
+                                Random r = new Random();
+                                int low = 0;
+                                int high = 10;
+                                int result = r.nextInt(high-low) + low;
+                                id += ""+result;
+                            }
+
+                            statement.executeUpdate("INSERT INTO usr (PSD, LST_NAM, FST_NAM, STU_NBR, GDR, EML, PHN_NBR, PHN_BOK, PWD, TMP_PWD, NTF, PRF_PIC, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ('"+pseudo+"','"+nom+"','"+nom+"', '"+id+"', 'O', '"+email+"', '"+phone+"', TRUE, '"+mdp+"', TRUE, FALSE, NULL,'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW())");
+                            Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                            startActivity(openActivity);
+                            finish();
+                        }
+                        else{
+                            erreurmessageregister.setText("Erreur: Les mots de passe ne correspondent pas.");
+                        }
+                    }
+
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    erreurmessageregister.setText(e.toString());
+                }
+
+                /*if(NomComplet.getText().toString().isEmpty() || Email.getText().toString().isEmpty() || NumTel.getText().toString().isEmpty()
+                || Pseudo.getText().toString().isEmpty() || Mdp.getText().toString().isEmpty() || MdpVerify.getText().toString().isEmpty() || !CheckBoxRegles.isChecked()) {
                     erreurmessageregister.setText("Erreur: Veuillez remplir tous les champs");
+                }
+                else if(){
+
                 }
                 else{
                     Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                     startActivity(openActivity);
                     finish();
-                }
+                }*/
             }
         });
     }
