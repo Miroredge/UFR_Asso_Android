@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = "";
 
 
+
                 try {
 
                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
