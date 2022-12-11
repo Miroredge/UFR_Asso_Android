@@ -109,7 +109,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-// dans votre classe Java
+// ---------------bouton discord ------------------
                 Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
