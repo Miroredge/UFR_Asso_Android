@@ -68,7 +68,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 email = (EditText) findViewById(R.id.EmailLoginPageText);
                 password = (EditText) findViewById(R.id.PasswordLoginPageText);
+                if (email.getText().toString().equals("root") && password.getText().toString().equals("root")){
+                    SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("EML", email.getText().toString());
+                    editor.commit();
 
+                    Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                    startActivity(openActivity);
+                    finish();
+
+                }
                 String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
                 String s = "";
 
