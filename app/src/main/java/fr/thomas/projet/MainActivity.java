@@ -2,9 +2,12 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -65,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
                 String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
                 String s = "";
+
+
                 try {
 
                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -75,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
                     ResultSet resultset = statement.executeQuery("SELECT GDR FROM usr WHERE EML = '"+email.getText().toString()+"' AND PWD='"+password.getText().toString()+"'");
 
                     if (resultset.next()){
+                        SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("EML", "valentin.user@gmail.com");
+                        editor.commit();
+
                         Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                         startActivity(openActivity);
                         finish();

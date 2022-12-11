@@ -2,6 +2,7 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -25,6 +26,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Blob;
 import java.io.ByteArrayInputStream;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 public class Profile extends AppCompatActivity {
@@ -97,7 +100,9 @@ public class Profile extends AppCompatActivity {
 
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            String a = "nikola.user@gmail.com";
+            SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+
+            String a = sharedPref.getString("EML", "");
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             PreparedStatement statement = connect.prepareStatement("SELECT FST_NAM, LST_NAM, PRF_PIC FROM usr WHERE EML = ?");
             statement.setString(1, a);
