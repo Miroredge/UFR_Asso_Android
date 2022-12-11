@@ -33,6 +33,7 @@ public class Profile extends AppCompatActivity {
     private View associations;
     private View profile;
     private TextView link;
+    private View create;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +140,16 @@ public class Profile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/"));
                 startActivity(intent);
+            }
+        });
+
+        // ---------------bouton MDP ------------------
+        this.create = findViewById(R.id.buttonMDP);
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), CreateAssociation.class);
+                startActivity(openActivity);
             }
         });
     }

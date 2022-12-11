@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BlancLight">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+
+        <EditText
+            android:id="@+id/ActuelMDP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Mot de passe actuel"
+            android:maxLines="1"
+            android:autofillHints="Nom de l'association"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+        <EditText
+            android:id="@+id/NewMDP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Nouveau mot de passe"
+            android:maxLines="1"
+            android:autofillHints="Location"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+
+        <EditText
+            android:id="@+id/ConfirmMDP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:hint="Confirmer le mot de passe"
+            android:maxLines="1"
+            android:autofillHints="Siret"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:background="@color/white"
+            android:padding="7dp"
+            />
+
+        <Button
+            android:id="@+id/valideChgt"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_margin="30dp"
+            android:text="Changer"
+            android:backgroundTint="@color/bleuCustomFonce"
+            android:layout_gravity="center" />
+
+
+
+        <TextView
+            android:id="@+id/messErreur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/Red"/>
+
+    </TableLayout>
+
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:text="Changer le Mot de Passe"
+            android:textColor="@color/black"/>
+    </TableRow>
+
+</RelativeLayout>
