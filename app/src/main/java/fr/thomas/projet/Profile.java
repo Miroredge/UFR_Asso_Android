@@ -96,7 +96,7 @@ public class Profile extends AppCompatActivity {
 
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            String a = "xiomi.user@gmail.com";
+            String a = "nikola.user@gmail.com";
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             PreparedStatement statement = connect.prepareStatement("SELECT FST_NAM, LST_NAM, PRF_PIC FROM usr WHERE EML = ?");
             statement.setString(1, a);
@@ -114,7 +114,7 @@ public class Profile extends AppCompatActivity {
 
                 ImageView avatar = findViewById(R.id.avatar);
                 avatar.setImageBitmap(imgBM_Avatar);
-                avatar.setAlpha(0);
+                //avatar.setAlpha(0);
 
             }
         } catch (SQLException e) {
