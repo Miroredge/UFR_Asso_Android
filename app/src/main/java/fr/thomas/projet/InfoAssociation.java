@@ -98,6 +98,17 @@ public class InfoAssociation extends AppCompatActivity {
             }
         });
 
+        //----------- Bouton Trésorerie-----------
+
+        this.tresorie = findViewById(R.id.BouttonTresorie);
+        tresorie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), Tresorie.class);
+                startActivity(openActivity);
+            }
+        });
+
         //----------- Bouton Quitter-----------
 
 

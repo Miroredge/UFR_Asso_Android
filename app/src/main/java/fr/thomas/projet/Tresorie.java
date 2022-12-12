@@ -2,8 +2,11 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
@@ -19,10 +22,21 @@ public class Tresorie extends AppCompatActivity {
 
     double money=0;
 
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
+    String SIRET;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_tresorie);
+
+        SharedPreferences sharedPreff = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        String a = sharedPreff.getString("EML", "");
+
+        sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        SIRET = sharedPref.getString("assoSIR", "");
 
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -38,12 +52,12 @@ public class Tresorie extends AppCompatActivity {
 
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             Statement statement = connect.createStatement();
-            ResultSet resultset = statement.executeQuery("SELECT A.MBR_PCE FROM aso A,usr_has_aso_and_rol B,usr C WHERE A.ROW_IDT=B.ASO_ROW_IDT AND C.ROW_IDT=B.USR_ROW_IDT");
+            ResultSet resultset = statement.executeQuery("SELECT SUM(A.AMT) - SUM(B.AMT) FROM boo_ety as A JOIN boo_ety as B WHERE A.ROW_IDT = B.ROW_IDT AND A.ASO_ROW_IDT=B.ASO_ROW_IDT AND A.TYP='INCOME' AND B.TYP='PAYMENT'");
 
             //------CHANGER USR ET ASO AVEC LES DATA ------Pas bonne requete
 
             while(resultset.next()){
-                money=resultset.getDouble("MBR_PCE");
+                money=resultset.getDouble(1);
             }
 
 

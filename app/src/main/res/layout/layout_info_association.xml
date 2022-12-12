@@ -15,7 +15,7 @@
             android:id="@+id/btQuitter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quitter"
+            android:text="Quitter l'association"
             android:backgroundTint="@color/Red"/>
     </TableRow>
 
