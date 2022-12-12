@@ -68,6 +68,7 @@ public class Accueil extends AppCompatActivity{
         this.messagebienvenue = (TextView) findViewById(R.id.MessageDeBienvenue);
         SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
         String a = sharedPref.getString("EML", "");
+
         messagebienvenue.setText("Bienvenue " + a);
 
         this.associations = findViewById(R.id.MessageDeBienvenue);

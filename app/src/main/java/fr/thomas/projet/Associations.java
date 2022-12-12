@@ -40,7 +40,6 @@ public class Associations extends AppCompatActivity {
     ArrayAdapter adapter;
     private ArrayAdapter<String> listAdapter;
 
-    TextView txtm;
 
     int countArrayForSharedPref = 0;
     //private Context context = getApplicationContext();
@@ -98,40 +97,6 @@ public class Associations extends AppCompatActivity {
             }
         });
 
-        //----------- Bouton Adhérants-----------
-
-        this.adherents = findViewById(R.id.BouttonAdhérants);
-        adherents.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Adherent.class);
-                startActivity(openActivity);
-            }
-        });
-
-        //----------- Bouton Evenement-----------
-
-        this.evenement = findViewById(R.id.BouttonEvenement);
-        evenement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Evenement.class);
-                startActivity(openActivity);
-            }
-        });
-
-        //----------- Bouton Tresorie-----------
-
-        this.tresorie = findViewById(R.id.BouttonTresorie);
-        tresorie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Tresorie.class);
-                startActivity(openActivity);
-            }
-        });
-
-
         //----------- List View -----------
 
 
@@ -164,14 +129,10 @@ public class Associations extends AppCompatActivity {
         adapter = new ArrayAdapter(Associations.this, android.R.layout.simple_list_item_1,list);
         listview.setAdapter(adapter);
 
-        this.txtm = findViewById(R.id.TxtVosAsso);
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = listview.getItemAtPosition(i).toString();
-                txtm.setText(s);
 
                 editor.putString("assoSIR", sharedPref.getString("assoSIR_"+Integer.toString(i), ""));
 
