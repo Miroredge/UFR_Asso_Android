@@ -42,6 +42,7 @@ public class Profile extends AppCompatActivity {
     private View deco;
 
     TextView AucunePhotoDeProfile;
+    TextView emailText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +125,9 @@ public class Profile extends AppCompatActivity {
             PreparedStatement statement = connect.prepareStatement("SELECT PSD, PRF_PIC FROM usr WHERE EML = ?");
             statement.setString(1, a);
             ResultSet resultSet = statement.executeQuery();
+
+            this.emailText = (TextView) findViewById(R.id.Email_Profile_Text);
+            emailText.setText("Email: "+a);
 
             while (resultSet.next()) {
                 nom_prenom.setText(resultSet.getString(1));
