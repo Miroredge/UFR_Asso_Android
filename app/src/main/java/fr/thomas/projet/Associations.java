@@ -148,8 +148,8 @@ public class Associations extends AppCompatActivity {
             while(resultset.next()){
                 list.add(resultset.getString("NAM"));
 
-                //editor.putString("assoSIR_"+Integer.toString(countArrayForSharedPref), resultset.getString("SIR_NBR"));
-                //editor.commit();
+                editor.putString("assoSIR_"+Integer.toString(countArrayForSharedPref), resultset.getString("SIR_NBR"));
+                editor.commit();
                 countArrayForSharedPref++;
 
             }
@@ -170,16 +170,16 @@ public class Associations extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //String s = listview.getItemAtPosition(i).toString();
-                //txtm.setText(s);
+                String s = listview.getItemAtPosition(i).toString();
+                txtm.setText(s);
 
-                /*editor.putString("assoSIR", prefs.getString("assoSIR_"+Integer.toString(i), ""));
+                editor.putString("assoSIR", sharedPref.getString("assoSIR_"+Integer.toString(i), ""));
 
                 for(int j = 0; j < countArrayForSharedPref; j++){
                     editor.remove("assoSIR_"+j);
                 }
                 countArrayForSharedPref = 0;
-                editor.commit();*/
+                editor.commit();
 
                 Intent openActivity = new Intent(getApplicationContext(), InfoAssociation.class);
                 startActivity(openActivity);

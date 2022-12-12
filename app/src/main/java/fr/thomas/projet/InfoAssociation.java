@@ -15,17 +15,20 @@ public class InfoAssociation extends AppCompatActivity {
     private View evenement;
     private View tresorie;
 
-    SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPref.edit();
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
-    String SIRET = sharedPref.getString("assoSIR", "");
-
+    String SIRET;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_info_association);
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        SIRET = sharedPref.getString("assoSIR", "");
 
         //----------- Bouton Adhérants-----------
 
