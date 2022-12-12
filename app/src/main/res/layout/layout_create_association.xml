@@ -53,7 +53,6 @@
             android:hint="Siret"
             android:maxLines="1"
             android:autofillHints="Siret"
-            android:inputType="textMultiLine|textNoSuggestions"
             android:background="@color/white"
             android:padding="7dp"
             />
