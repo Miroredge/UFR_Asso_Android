@@ -2,10 +2,13 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,15 +21,17 @@ public class Associations extends AppCompatActivity {
     private View associations;
     private View profile;
 
-    private View adherants;
+    private View adherents;
     private View evenement;
     private View tresorie;
     private View create;
     private View rejoindre;
 
     ListView listview;
-    List list = new ArrayList();
+    List list = new ArrayList<>();
     ArrayAdapter adapter;
+    private ArrayAdapter<String> listAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,9 @@ public class Associations extends AppCompatActivity {
         setContentView(R.layout.layout_associations);
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        String a = sharedPref.getString("EML", "");
 
         //----------- Bouton accueil -----------
 
@@ -71,11 +79,11 @@ public class Associations extends AppCompatActivity {
 
         //----------- Bouton Adhérants-----------
 
-        this.adherants = findViewById(R.id.BouttonAdhérants);
-        adherants.setOnClickListener(new View.OnClickListener() {
+        this.adherents = findViewById(R.id.BouttonAdhérants);
+        adherents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Adherant.class);
+                Intent openActivity = new Intent(getApplicationContext(), Adherent.class);
                 startActivity(openActivity);
             }
         });
@@ -104,9 +112,9 @@ public class Associations extends AppCompatActivity {
 
 
         //----------- List View -----------
-
-        listview = (ListView) findViewById(R.id.ListView_Evenement);
-        list.add("Association 1");
+        ArrayList<String> listData = new ArrayList<>();
+        listview = (ListView) findViewById(R.id.ListView_UsrAsso);
+        list.add(a);
         list.add("Association 2");
         list.add("Association 3");
         list.add("Association 4");
@@ -116,6 +124,14 @@ public class Associations extends AppCompatActivity {
         adapter = new ArrayAdapter(Associations.this, android.R.layout.simple_list_item_1,list);
         listview.setAdapter(adapter);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(openActivity);
+            }
+        });
 
         //----------- Bouton Creation asso-----------
 
