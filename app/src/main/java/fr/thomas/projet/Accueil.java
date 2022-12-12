@@ -8,7 +8,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Accueil extends AppCompatActivity{
 
@@ -17,6 +22,10 @@ public class Accueil extends AppCompatActivity{
     private View profile;
 
     private TextView messagebienvenue;
+
+    ListView listview;
+    List list = new ArrayList();
+    ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +80,25 @@ public class Accueil extends AppCompatActivity{
 
         messagebienvenue.setText("Bienvenue " + a);
 
-        this.associations = findViewById(R.id.MessageDeBienvenue);
+        /*this.associations = findViewById(R.id.MessageDeBienvenue);
         associations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                 startActivity(openActivity);
             }
-        });
+        });*/
+
+
+        listview = (ListView) findViewById(R.id.listview_acceuil);
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+        list.add("Text");
+
+        adapter = new ArrayAdapter(Accueil.this, android.R.layout.simple_list_item_1,list);
+        listview.setAdapter(adapter);
+
 
     }
 }
