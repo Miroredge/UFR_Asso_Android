@@ -8,12 +8,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class InfoAssociation extends AppCompatActivity {
 
     private View adherents;
     private View evenement;
     private View tresorie;
+    private TextView nomMonAsso;
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
@@ -29,6 +31,11 @@ public class InfoAssociation extends AppCompatActivity {
         sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
         SIRET = sharedPref.getString("assoSIR", "");
+
+        nomMonAsso= findViewById(R.id.NomMonAsso);
+
+        nomMonAsso.setText(SIRET);
+
 
         //----------- Bouton Adhérants-----------
 
