@@ -168,7 +168,7 @@ public class Profile extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/MHbH7wk86K"));
                 startActivity(intent);
             }
         });
