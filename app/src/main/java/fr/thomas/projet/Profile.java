@@ -140,7 +140,7 @@ public class Profile extends AppCompatActivity {
                 else {
 
                     this.AucunePhotoDeProfile = (TextView) findViewById(R.id.AucuneImage);
-                    AucunePhotoDeProfile.setText("Aucune Photo");
+                    AucunePhotoDeProfile.setText("Aucun Avatar");
 
                 }
             }
