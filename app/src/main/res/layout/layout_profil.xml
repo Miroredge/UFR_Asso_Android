@@ -63,6 +63,16 @@
             />
     </TableRow>
 
+    <TextView
+        android:id="@+id/AucuneImage"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text=""
+        android:layout_marginTop="180dp"
+        />
+
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="wrap_content"

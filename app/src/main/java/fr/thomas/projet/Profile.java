@@ -41,6 +41,8 @@ public class Profile extends AppCompatActivity {
     private View create;
     private View deco;
 
+    TextView AucunePhotoDeProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //----------- Creation de la page ---------
@@ -136,6 +138,9 @@ public class Profile extends AppCompatActivity {
                     imageView.setImageBitmap(imageBitmap);
                 }
                 else {
+
+                    this.AucunePhotoDeProfile = (TextView) findViewById(R.id.AucuneImage);
+                    AucunePhotoDeProfile.setText("Aucune Photo");
 
                 }
             }
