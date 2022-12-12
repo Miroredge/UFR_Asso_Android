@@ -55,9 +55,10 @@
     android:id="@+id/NOMPrenom"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:text="NOM PRENOM"
+    android:text="PSEUDO"
     android:layout_marginTop="180dp"
     android:gravity="center"
+    android:textSize="12pt"
 
     />
 

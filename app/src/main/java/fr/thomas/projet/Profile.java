@@ -114,13 +114,15 @@ public class Profile extends AppCompatActivity {
                 nom_prenom.setText(resultSet.getString(1));
 
 
-                Blob avatarBlob = resultSet.getBlob("PRF_PIC");
-                byte[] imageByte = avatarBlob.getBytes(1, (int) avatarBlob.length());
-                Bitmap imgBM_Avatar = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+                Blob imageBlob = resultSet.getBlob("PRF_PIC");
+                byte[] imageBytes = imageBlob.getBytes(1, (int) imageBlob.length());
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap imageBitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length, options);
+                ImageView imageView = (ImageView) findViewById(R.id.avatar);
+                imageView.setImageBitmap(imageBitmap);
 
-                ImageView avatar = findViewById(R.id.avatar);
-                avatar.setImageBitmap(imgBM_Avatar);
-                //avatar.setAlpha(0);
+
 
 
 
