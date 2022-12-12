@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BlancLight">
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom de l'asso"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="38dp"
+            android:gravity="center"
+            android:text="Mon Association"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/BouttonAdhérants"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Adhérents"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/bleuCustomFonce"
+            />
+
+        <Button
+            android:id="@+id/BouttonEvenement"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Evenements"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/bleuCustomFonce"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/BouttonTresorie"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Trésorie"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/bleuCustomFonce"
+            />
+
+    </TableRow>
+
+</RelativeLayout>

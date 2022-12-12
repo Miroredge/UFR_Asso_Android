@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,6 +39,13 @@ public class Associations extends AppCompatActivity {
     List list = new ArrayList<>();
     ArrayAdapter adapter;
     private ArrayAdapter<String> listAdapter;
+
+    TextView txtm;
+
+    int countArrayForSharedPref = 0;
+    SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPref.edit();
+
 
 
     @Override
@@ -131,10 +140,15 @@ public class Associations extends AppCompatActivity {
 
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             Statement statement = connect.createStatement();
-            ResultSet resultset = statement.executeQuery("SELECT usr.`PSD`, usr.`EML`, aso.`NAM` FROM usr INNER JOIN usr_has_aso_and_rol on USR_ROW_IDT = usr.ROW_IDT INNER JOIN aso ON ASO_ROW_IDT = aso.ROW_IDT WHERE usr.`EML` = '"+a+"'");
+            ResultSet resultset = statement.executeQuery("SELECT usr.`PSD`, usr.`EML`, aso.`NAM`, aso.`SIR_NBR` FROM usr INNER JOIN usr_has_aso_and_rol on USR_ROW_IDT = usr.ROW_IDT INNER JOIN aso ON ASO_ROW_IDT = aso.ROW_IDT WHERE usr.`EML` = '"+a+"'");
 
             while(resultset.next()){
                 list.add(resultset.getString("NAM"));
+
+                editor.putString("assoSIR_"+Integer.toString(countArrayForSharedPref), resultset.getString("SIR_NBR"));
+                editor.commit();
+                countArrayForSharedPref++;
+
             }
 
         } catch (SQLException e) {
@@ -147,11 +161,24 @@ public class Associations extends AppCompatActivity {
         adapter = new ArrayAdapter(Associations.this, android.R.layout.simple_list_item_1,list);
         listview.setAdapter(adapter);
 
+        this.txtm = findViewById(R.id.TxtVosAsso);
+
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //String s = listview.getItemAtPosition(i).toString();
+                //txtm.setText(s);
 
-                Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                editor.putString("assoSIR", sharedPref.getString("assoSIR_"+Integer.toString(i), ""));
+
+                for(int j = 0; j < countArrayForSharedPref; j++){
+                    editor.remove("assoSIR_"+j);
+                }
+                countArrayForSharedPref = 0;
+                editor.commit();
+
+                Intent openActivity = new Intent(getApplicationContext(), InfoAssociation.class);
                 startActivity(openActivity);
             }
         });
