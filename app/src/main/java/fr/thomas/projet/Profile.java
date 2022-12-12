@@ -43,6 +43,9 @@ public class Profile extends AppCompatActivity {
 
     TextView AucunePhotoDeProfile;
     TextView emailText;
+    TextView nomText;
+    TextView prenomText;
+    TextView phoneText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,9 +129,6 @@ public class Profile extends AppCompatActivity {
             statement.setString(1, a);
             ResultSet resultSet = statement.executeQuery();
 
-            this.emailText = (TextView) findViewById(R.id.Email_Profile_Text);
-            emailText.setText("Email: "+a);
-
             while (resultSet.next()) {
                 nom_prenom.setText(resultSet.getString(1));
 
@@ -182,5 +182,45 @@ public class Profile extends AppCompatActivity {
                 startActivity(openActivity);
             }
         });
+
+        try {
+
+            String Temail = "";
+            String Tnom = "";
+            String Tprenom = "";
+            String Tphone = "";
+
+
+            SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+            String a = sharedPref.getString("EML", "");
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+            Statement statement = connect.createStatement();
+            ResultSet resultset = statement.executeQuery("SELECT * FROM usr WHERE EML = '"+a+"'");
+
+            while(resultset.next()){
+                Temail=resultset.getString(8);
+                Tnom=resultset.getString(5);
+                Tprenom=resultset.getString(4);
+                Tphone=resultset.getString(9);
+
+            }
+
+            this.emailText = (TextView) findViewById(R.id.Nom_Profile_Text);
+            emailText.setText("Nom: "+Tnom);
+            this.emailText = (TextView) findViewById(R.id.Prenom_Profile_Text);
+            emailText.setText("Prenom: "+Tprenom);
+            this.emailText = (TextView) findViewById(R.id.Email_Profile_Text);
+            emailText.setText("Email: "+Temail);
+            this.emailText = (TextView) findViewById(R.id.Phone_Profile_Text);
+            emailText.setText("Telephone: "+Tphone);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

@@ -119,13 +119,43 @@
         android:text="DISCORD" />
 
     <TextView
+        android:id="@+id/Nom_Profile_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="450dp"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/Prenom_Profile_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="480dp"
+        android:text=""
+        />
+
+    <TextView
         android:id="@+id/Email_Profile_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="20dp"
-        android:layout_marginTop="460dp"
-        android:text="Email: caca@gmail.com"
+        android:layout_marginTop="510dp"
+        android:text=""
+        />
+
+    <TextView
+        android:id="@+id/Phone_Profile_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="530dp"
+        android:text=""
         />
 
     <Button
