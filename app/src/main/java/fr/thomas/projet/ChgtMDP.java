@@ -52,8 +52,7 @@ public class ChgtMDP extends AppCompatActivity {
                     startActivity(openActivity);
                     finish();
                 }
-            }
-
+            }  
         });
     }
 }

@@ -6,12 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +49,9 @@ public class Associations extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
         String a = sharedPref.getString("EML", "");
+
+        String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
+
 
         //----------- Bouton accueil -----------
 
@@ -112,14 +121,28 @@ public class Associations extends AppCompatActivity {
 
 
         //----------- List View -----------
+
+
+
+        try {
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+            Statement statement = connect.createStatement();
+            ResultSet resultset = statement.executeQuery("SELECT usr.`PSD`, usr.`EML`, aso.`NAM` FROM usr INNER JOIN usr_has_aso_and_rol on USR_ROW_IDT = usr.ROW_IDT INNER JOIN aso ON ASO_ROW_IDT = aso.ROW_IDT WHERE usr.`EML` = '"+a+"'");
+
+            while(resultset.next()){
+                list.add(resultset.getString("NAM"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ArrayList<String> listData = new ArrayList<>();
         listview = (ListView) findViewById(R.id.ListView_UsrAsso);
-        list.add(a);
-        list.add("Association 2");
-        list.add("Association 3");
-        list.add("Association 4");
-        list.add("Association 5");
-        list.add("Association 6");
 
         adapter = new ArrayAdapter(Associations.this, android.R.layout.simple_list_item_1,list);
         listview.setAdapter(adapter);
