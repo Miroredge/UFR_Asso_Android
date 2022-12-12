@@ -2,7 +2,9 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -121,6 +123,11 @@ public class Inscription extends AppCompatActivity {
                                 int result = r.nextInt(high-low) + low;
                                 id += ""+result;
                             }
+
+                            SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("EML", email);
+                            editor.commit();
 
                             statement.executeUpdate("INSERT INTO usr (PSD, LST_NAM, FST_NAM, STU_NBR, GDR, EML, PHN_NBR, PHN_BOK, PWD, TMP_PWD, NTF, PRF_PIC, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ('"+pseudo+"','"+nom+"','"+nom+"', '"+id+"', 'O', '"+email+"', '"+phone+"', TRUE, '"+mdp+"', TRUE, FALSE, NULL,'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW())");
                             Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
