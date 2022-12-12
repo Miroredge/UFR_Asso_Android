@@ -95,7 +95,7 @@ public class InfoAssociation extends AppCompatActivity {
 
                     }
 
-                Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                 startActivity(openActivity);
             }
         });
