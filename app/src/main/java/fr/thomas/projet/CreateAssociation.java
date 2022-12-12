@@ -68,8 +68,14 @@ public class CreateAssociation extends AppCompatActivity {
                         StrictMode.setThreadPolicy(policy);
                         Connection connect = DriverManager.getConnection(url, "ROOT", "root");
                         Statement statement = connect.createStatement();
-                        statement.executeQuery("INSERT INTO ufr_asso.aso (SIR_NBR, NAM, LOC, LGO, MBR_PCE, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ('"+Siret+"', '"+Nom+"', '"+Location+"', null, '"+Prix+"', 'CREATION ASSO', Now(), 'CREATION ASSO', Now());");
-                        statement.executeQuery("INSERT INTO ufr_asso.usr_has_aso_and_rol (USR_ROW_IDT, ASO_ROW_IDT, ROL_ROW_IDT, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ((SELECT ROW_IDT FROM USR WHERE usr.`EML` = '"+email+"'), (SELECT ROW_IDT FROM ASO WHERE aso.`NAM` = 'Association_TEST'), (SELECT ROW_IDT FROM ROL WHERE NAM = 'ADMIN'), 'CREATION ASSO by User', Now(), 'CREATION ASSO by User', Now());");
+
+                        String nom = Nom.getText().toString();
+                        String location = Location.getText().toString();
+                        String siret = Siret.getText().toString();
+                        String prix = Prix.getText().toString();
+
+                        statement.executeUpdate("INSERT INTO ufr_asso.aso (SIR_NBR, NAM, LOC, LGO, MBR_PCE, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ('"+siret+"', '"+nom+"', '"+location+"', null, '"+prix+"', 'CREATION ASSO', Now(), 'CREATION ASSO', Now());");
+                        statement.executeUpdate("INSERT INTO ufr_asso.usr_has_aso_and_rol (USR_ROW_IDT, ASO_ROW_IDT, ROL_ROW_IDT, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ((SELECT ROW_IDT FROM USR WHERE usr.`EML` = '"+email+"'), (SELECT ROW_IDT FROM ASO WHERE aso.`NAM` = '"+nom+"'), (SELECT ROW_IDT FROM ROL WHERE NAM = 'ADMIN'), 'CREATION ASSO by User', Now(), 'CREATION ASSO by User', Now());");
 
                         erreur.setTextColor(getResources().getColor(R.color.Green));
                         erreur.setText("Votre association a été créée.");
