@@ -94,7 +94,7 @@ public class Profile extends AppCompatActivity {
         //Nom Prenom
 
         TextView nom_prenom = findViewById(R.id.NOMPrenom);
-        nom_prenom.setText("ygjhvb");
+        nom_prenom.setText("NOM Prenom");
 
         String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
         String s = "";
@@ -106,12 +106,12 @@ public class Profile extends AppCompatActivity {
 
             String a = sharedPref.getString("EML", "");
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
-            PreparedStatement statement = connect.prepareStatement("SELECT FST_NAM, LST_NAM, PRF_PIC FROM usr WHERE EML = ?");
+            PreparedStatement statement = connect.prepareStatement("SELECT PSD, PRF_PIC FROM usr WHERE EML = ?");
             statement.setString(1, a);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                nom_prenom.setText(resultSet.getString(1) + " " + resultSet.getString(2));
+                nom_prenom.setText(resultSet.getString(1));
 
 
                 Blob avatarBlob = resultSet.getBlob("PRF_PIC");
