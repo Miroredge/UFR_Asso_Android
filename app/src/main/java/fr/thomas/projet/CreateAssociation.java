@@ -80,6 +80,9 @@ public class CreateAssociation extends AppCompatActivity {
                         erreur.setTextColor(getResources().getColor(R.color.Green));
                         erreur.setText("Votre association a été créée.");
 
+                        Intent openActivity = new Intent(getApplicationContext(), Associations.class);
+                        startActivity(openActivity);
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                         erreur.setText(e.toString());
