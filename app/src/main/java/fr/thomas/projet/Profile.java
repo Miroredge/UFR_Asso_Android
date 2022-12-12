@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.provider.ContactsContract;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.WindowManager;
@@ -73,7 +75,7 @@ public class Profile extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openActivity = new Intent(getApplicationContext(), Profile.class);
+                Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                 startActivity(openActivity);
             }
         });
@@ -111,18 +113,15 @@ public class Profile extends AppCompatActivity {
             while (resultSet.next()) {
                 nom_prenom.setText(resultSet.getString(1) + " " + resultSet.getString(2));
 
-                if(resultSet.getString("PRF_PIC").equals("NULL")){
-                    nom_prenom.setText("Pas de pp");
-                }
-                else {
-                    Blob avatarBlob = resultSet.getBlob("PRF_PIC");
-                    byte[] imageByte = avatarBlob.getBytes(1, (int) avatarBlob.length());
-                    Bitmap imgBM_Avatar = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
 
-                    ImageView avatar = findViewById(R.id.avatar);
-                    avatar.setImageBitmap(imgBM_Avatar);
-                    //avatar.setAlpha(0);
-                }
+                Blob avatarBlob = resultSet.getBlob("PRF_PIC");
+                byte[] imageByte = avatarBlob.getBytes(1, (int) avatarBlob.length());
+                Bitmap imgBM_Avatar = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+
+                ImageView avatar = findViewById(R.id.avatar);
+                avatar.setImageBitmap(imgBM_Avatar);
+                //avatar.setAlpha(0);
+
 
 
             }
@@ -132,7 +131,7 @@ public class Profile extends AppCompatActivity {
 
 
         // bouton edit
-        ImageButton boutonEdit = findViewById(R.id.editBouton);
+        ImageButton boutonEdit = (ImageButton) findViewById(R.id.editBouton);
         boutonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
