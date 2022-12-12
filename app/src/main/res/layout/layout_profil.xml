@@ -145,7 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="570dp"
         android:gravity="center"
-        android:backgroundTint="@color/bleuCustomFonce"
+        android:backgroundTint="@color/Red"
         android:text="Se déconnecter" />
 
 </RelativeLayout>
