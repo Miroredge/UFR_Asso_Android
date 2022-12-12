@@ -112,7 +112,7 @@ public class RejoindreAssociation extends AppCompatActivity {
                     }
 
                     Toast.makeText(getApplicationContext(), "Vous avez rejoins : " + item, Toast.LENGTH_SHORT).show();
-                    Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
+                    Intent openActivity = new Intent(getApplicationContext(), Associations.class);
                     startActivity(openActivity);
                     finish();
                 }
