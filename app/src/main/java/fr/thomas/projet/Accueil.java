@@ -92,8 +92,8 @@ public class Accueil extends AppCompatActivity{
 
         HashMap<String, String> nameAddresses = new HashMap<>();
         nameAddresses.put("Notification", "Association 'NouvelleAsso' rejoint.");
-        nameAddresses.put("Profile", "Votre profil a été crée");
-        nameAddresses.put("Association", "Tom a rejoint 'AssoTest'");
+        nameAddresses.put("Profil", "Votre profil a été crée.");
+        nameAddresses.put("Association", "Tom a rejoint 'AssoTest.'");
 
         List<HashMap<String, String>> listItems = new ArrayList<>();
         SimpleAdapter adapter = new SimpleAdapter(this, listItems, R.layout.liste_items_acceuil,
