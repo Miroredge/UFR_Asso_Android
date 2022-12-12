@@ -2,7 +2,9 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -41,6 +43,9 @@ public class RejoindreAssociation extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.layout_rejoindre_assocition);
+
+        SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        String a = sharedPref.getString("EML", "");
 
         //----------- Requete Nom Asso -----------
 
@@ -90,7 +95,23 @@ public class RejoindreAssociation extends AppCompatActivity {
                     ErreurSelectAsso.setText("Vous devez sélectionner une association");
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Vous avez rejoin : " + item, Toast.LENGTH_SHORT).show();
+
+                    try {
+
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        StrictMode.setThreadPolicy(policy);
+
+                        Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+                        Statement statement = connect.createStatement();
+                        statement.executeUpdate("INSERT INTO usr_has_aso_and_rol (USR_ROW_IDT, ASO_ROW_IDT, ROL_ROW_IDT, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ((Select ROW_IDT From usr Where EML='"+a+"'), (Select ROW_IDT From aso Where NAM='"+item+"'), (SELECT ROW_IDT FROM rol WHERE NAM = 'MEMBER'), 'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW() )");
+
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+
+                    }
+
+                    Toast.makeText(getApplicationContext(), "Vous avez rejoins : " + item, Toast.LENGTH_SHORT).show();
                     Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                     startActivity(openActivity);
                     finish();
