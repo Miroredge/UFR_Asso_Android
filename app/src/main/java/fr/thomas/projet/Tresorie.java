@@ -29,7 +29,7 @@ public class Tresorie extends AppCompatActivity {
 
         this.solde=findViewById(R.id.SoldeTrésorie);
 
-        String url = "jdbc:mysql://astenor.freeboxos.fr:32800/ufr_asso";
+        String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
 
         try {
 
