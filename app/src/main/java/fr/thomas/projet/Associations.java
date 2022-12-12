@@ -136,9 +136,6 @@ public class Associations extends AppCompatActivity {
 
                 editor.putString("assoSIR", sharedPref.getString("assoSIR_"+Integer.toString(i), ""));
 
-                for(int j = 0; j < countArrayForSharedPref; j++){
-                    editor.remove("assoSIR_"+j);
-                }
                 countArrayForSharedPref = 0;
                 editor.commit();
 
