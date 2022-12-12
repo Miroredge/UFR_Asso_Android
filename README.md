@@ -1,8 +1,8 @@
 # UFR_Asso_Android
 
-##Installation
+Installation
 
-###Android Studio
+Android Studio
 - Installer Android Studio
 - Générer le build
 - Lancer un émulateur en API <= 28
