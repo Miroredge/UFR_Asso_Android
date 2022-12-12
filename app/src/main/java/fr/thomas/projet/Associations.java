@@ -43,8 +43,11 @@ public class Associations extends AppCompatActivity {
     TextView txtm;
 
     int countArrayForSharedPref = 0;
-    SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPref.edit();
+    //private Context context = getApplicationContext();
+    //SharedPreferences sharedPref = context.getSharedPreferences("my_prefs", MODE_PRIVATE);
+    //SharedPreferences.Editor editor = prefs.edit();
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
 
 
@@ -55,8 +58,8 @@ public class Associations extends AppCompatActivity {
         setContentView(R.layout.layout_associations);
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
         String a = sharedPref.getString("EML", "");
 
         String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
@@ -145,8 +148,8 @@ public class Associations extends AppCompatActivity {
             while(resultset.next()){
                 list.add(resultset.getString("NAM"));
 
-                editor.putString("assoSIR_"+Integer.toString(countArrayForSharedPref), resultset.getString("SIR_NBR"));
-                editor.commit();
+                //editor.putString("assoSIR_"+Integer.toString(countArrayForSharedPref), resultset.getString("SIR_NBR"));
+                //editor.commit();
                 countArrayForSharedPref++;
 
             }
@@ -170,13 +173,13 @@ public class Associations extends AppCompatActivity {
                 //String s = listview.getItemAtPosition(i).toString();
                 //txtm.setText(s);
 
-                editor.putString("assoSIR", sharedPref.getString("assoSIR_"+Integer.toString(i), ""));
+                /*editor.putString("assoSIR", prefs.getString("assoSIR_"+Integer.toString(i), ""));
 
                 for(int j = 0; j < countArrayForSharedPref; j++){
                     editor.remove("assoSIR_"+j);
                 }
                 countArrayForSharedPref = 0;
-                editor.commit();
+                editor.commit();*/
 
                 Intent openActivity = new Intent(getApplicationContext(), InfoAssociation.class);
                 startActivity(openActivity);

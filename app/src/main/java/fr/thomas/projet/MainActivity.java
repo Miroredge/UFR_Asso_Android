@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView erreurmessagelogin;
 
-    private String bddemail = "root";
-    private String bddmdp = "root";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
