@@ -39,6 +39,7 @@ public class Profile extends AppCompatActivity {
     private View profile;
     private TextView link;
     private View create;
+    private View deco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,18 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                 startActivity(openActivity);
+            }
+        });
+
+        //----------- Bouton Deconnexion -----------
+
+        this.deco = findViewById(R.id.deconnexion);
+        deco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openActivity = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(openActivity);
+                finish();
             }
         });
 
