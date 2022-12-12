@@ -59,7 +59,7 @@ public class RejoindreAssociation extends AppCompatActivity {
 
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             Statement statement = connect.createStatement();
-            ResultSet resultset = statement.executeQuery("SELECT NAM FROM aso");
+            ResultSet resultset = statement.executeQuery("SELECT aso.NAM FROM aso WHERE aso.nam NOT IN (SELECT aso.nam FROM aso INNER JOIN usr_has_aso_and_rol ON ASO_ROW_IDT = aso.ROW_IDT INNER JOIN usr ON USR_ROW_IDT = usr.ROW_IDT INNER JOIN rol ON ROL_ROW_IDT = rol.ROW_IDT WHERE usr.`EML` = '"+a+"' and `ASO_ROW_IDT` IS NOT NULL and `ROL_ROW_IDT` = (SELECT `ROW_IDT` FROM ROL WHERE `NAM` = 'MEMBER'))");
 
 
             while(resultset.next()) {
