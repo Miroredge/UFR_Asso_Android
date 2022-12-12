@@ -129,7 +129,7 @@ public class Inscription extends AppCompatActivity {
                             editor.putString("EML", email);
                             editor.commit();
 
-                            statement.executeUpdate("INSERT INTO usr (PSD, LST_NAM, FST_NAM, STU_NBR, GDR, EML, PHN_NBR, PHN_BOK, PWD, TMP_PWD, NTF, PRF_PIC, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ('"+pseudo+"','"+nom+"','"+nom+"', '"+id+"', 'O', '"+email+"', '"+phone+"', TRUE, '"+mdp+"', TRUE, FALSE, NULL,'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW())");
+                            statement.executeUpdate("INSERT INTO usr (PSD, LST_NAM, FST_NAM, STU_NBR, GDR, EML, PHN_NBR, PHN_BOK, PWD, TMP_PWD, NTF, PRF_PIC, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ('"+pseudo+"','"+nom+"','"+nom+"', '"+id+"', 'O', '"+email+"', '"+phone+"', TRUE, '"+mdp+"', TRUE, FALSE, null,'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW())");
                             Intent openActivity = new Intent(getApplicationContext(), Accueil.class);
                             startActivity(openActivity);
                             finish();
