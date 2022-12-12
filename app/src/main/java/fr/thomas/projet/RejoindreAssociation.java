@@ -29,9 +29,8 @@ public class RejoindreAssociation extends AppCompatActivity {
 
     private View btJoinAsso;
 
-
-    ArrayList<String> assos=new ArrayList<>();
-    String item ="";
+    ArrayList<String> assos = new ArrayList<>();
+    String item = "";
 
     AutoCompleteTextView AutoCompleteTxt;
 
@@ -48,7 +47,7 @@ public class RejoindreAssociation extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
         String a = sharedPref.getString("EML", "");
 
-        //----------- Requete Nom Asso -----------
+        // ----------- Requete Nom Asso -----------
 
         String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
         String s = "";
@@ -59,10 +58,12 @@ public class RejoindreAssociation extends AppCompatActivity {
 
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             Statement statement = connect.createStatement();
-            ResultSet resultset = statement.executeQuery("SELECT aso.NAM FROM aso WHERE aso.nam NOT IN (SELECT aso.nam FROM aso INNER JOIN usr_has_aso_and_rol ON ASO_ROW_IDT = aso.ROW_IDT INNER JOIN usr ON USR_ROW_IDT = usr.ROW_IDT INNER JOIN rol ON ROL_ROW_IDT = rol.ROW_IDT WHERE usr.`EML` = '"+a+"' and `ASO_ROW_IDT` IS NOT NULL and `ROL_ROW_IDT` = (SELECT `ROW_IDT` FROM ROL WHERE `NAM` = 'MEMBER'));");
+            ResultSet resultset = statement.executeQuery(
+                    "SELECT aso.NAM FROM aso WHERE aso.nam NOT IN (SELECT aso.nam FROM aso INNER JOIN usr_has_aso_and_rol ON ASO_ROW_IDT = aso.ROW_IDT INNER JOIN usr ON USR_ROW_IDT = usr.ROW_IDT INNER JOIN rol ON ROL_ROW_IDT = rol.ROW_IDT WHERE usr.`EML` = '"
+                            + a
+                            + "' and `ASO_ROW_IDT` IS NOT NULL and `ROL_ROW_IDT` = (SELECT `ROW_IDT` FROM ROL WHERE `NAM` = 'MEMBER'));");
 
-
-            while(resultset.next()) {
+            while (resultset.next()) {
                 assos.add(resultset.getString("NAM"));
             }
 
@@ -71,9 +72,8 @@ public class RejoindreAssociation extends AppCompatActivity {
 
         }
 
-
         AutoCompleteTxt = findViewById(R.id.auto_complete_txt);
-        adapterItem=new ArrayAdapter<String>(this,R.layout.list_rejoindre,assos);
+        adapterItem = new ArrayAdapter<String>(this, R.layout.list_rejoindre, assos);
 
         AutoCompleteTxt.setAdapter(adapterItem);
 
@@ -81,7 +81,7 @@ public class RejoindreAssociation extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 item = parent.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(),"Association :"+item,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Association :" + item, Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -92,10 +92,9 @@ public class RejoindreAssociation extends AppCompatActivity {
         btJoinAsso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(item==""){
+                if (item == "") {
                     ErreurSelectAsso.setText("Vous devez sélectionner une association");
-                }
-                else {
+                } else {
 
                     try {
 
@@ -104,8 +103,10 @@ public class RejoindreAssociation extends AppCompatActivity {
 
                         Connection connect = DriverManager.getConnection(url, "ROOT", "root");
                         Statement statement = connect.createStatement();
-                        statement.executeUpdate("INSERT INTO usr_has_aso_and_rol (USR_ROW_IDT, ASO_ROW_IDT, ROL_ROW_IDT, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ((Select ROW_IDT From usr Where EML='"+a+"'), (Select ROW_IDT From aso Where NAM='"+item+"'), (SELECT ROW_IDT FROM rol WHERE NAM = 'MEMBER'), 'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW() )");
-
+                        statement.executeUpdate(
+                                "INSERT INTO usr_has_aso_and_rol (USR_ROW_IDT, ASO_ROW_IDT, ROL_ROW_IDT, CRE_ID, CRE_DAT, UPD_ID, UPD_DAT) VALUES ((Select ROW_IDT From usr Where EML='"
+                                        + a + "'), (Select ROW_IDT From aso Where NAM='" + item
+                                        + "'), (SELECT ROW_IDT FROM rol WHERE NAM = 'MEMBER'), 'INIT_SCRIPT', NOW(), 'INIT_SCRIPT', NOW() )");
 
                     } catch (SQLException e) {
                         e.printStackTrace();

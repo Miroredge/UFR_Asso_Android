@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -23,6 +24,9 @@ public class InfoAssociation extends AppCompatActivity {
     private View evenement;
     private View tresorie;
     private TextView nomMonAsso;
+    private TextView siretMonAsso;
+
+    String siretAso;
 
     private View quitter;
 
@@ -37,6 +41,8 @@ public class InfoAssociation extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
+
         SharedPreferences sharedPreff = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
         String a = sharedPreff.getString("EML", "");
 
@@ -44,10 +50,31 @@ public class InfoAssociation extends AppCompatActivity {
         editor = sharedPref.edit();
         SIRET = sharedPref.getString("assoSIR", "");
 
+        siretMonAsso= findViewById(R.id.SiretMonAsso);
         nomMonAsso= findViewById(R.id.NomMonAsso);
 
-        nomMonAsso.setText(SIRET);
+        siretMonAsso.setText("Siret : "+SIRET);
 
+        try {
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+
+            Connection connect = DriverManager.getConnection(url, "ROOT", "root");
+            Statement statement = connect.createStatement();
+            ResultSet resultset = statement.executeQuery("SELECT NAM FROM aso Where SIR_NBR='"+SIRET+"'");
+
+            while(resultset.next()){
+
+                siretAso=resultset.getString(1);
+
+            }
+
+            nomMonAsso.setText("Nom : "+siretAso);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         //----------- Bouton Adhérants-----------
 
@@ -73,7 +100,7 @@ public class InfoAssociation extends AppCompatActivity {
 
         //----------- Bouton Quitter-----------
 
-        String url = "jdbc:mysql://miroredge.freeboxos.fr:49999/ufr_asso";
+
 
         this.quitter = findViewById(R.id.btQuitter);
         quitter.setOnClickListener(new View.OnClickListener() {

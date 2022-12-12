@@ -96,6 +96,7 @@
 
     />
 
+
     <ImageButton
         android:id="@+id/editBouton"
         android:layout_width="wrap_content"
@@ -117,6 +118,16 @@
         android:backgroundTint="@color/bleuCustomFonce"
         android:text="DISCORD" />
 
+    <TextView
+        android:id="@+id/Email_Profile_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="460dp"
+        android:text="Email: caca@gmail.com"
+        />
+
     <Button
         android:id="@+id/buttonMDP"
         android:layout_centerHorizontal="true"
@@ -134,7 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="570dp"
         android:gravity="center"
-        android:backgroundTint="@color/bleuCustomFonce"
+        android:backgroundTint="@color/Red"
         android:text="Se déconnecter" />
 
 </RelativeLayout>

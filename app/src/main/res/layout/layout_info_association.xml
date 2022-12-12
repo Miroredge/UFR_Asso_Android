@@ -31,6 +31,17 @@
             android:layout_height="wrap_content"
             android:text="Nom de l'asso"
             android:textSize="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/SiretMonAsso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Siret de l'asso"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="20dp"
             android:textColor="@color/black"
             />
     </TableRow>

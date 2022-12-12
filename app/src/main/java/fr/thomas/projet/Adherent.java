@@ -2,7 +2,9 @@ package fr.thomas.projet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -81,7 +83,15 @@ public class Adherent extends AppCompatActivity {
 
             Connection connect = DriverManager.getConnection(url, "ROOT", "root");
             Statement statement = connect.createStatement();
+
+            SharedPreferences sharedPref = getSharedPreferences("my_prefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+
             ResultSet resultset = statement.executeQuery("SELECT FST_NAM,LST_NAM,PSD,EML FROM usr ");
+            if (!sharedPref.getString("assoSIR", "").equals(null)) {
+                String SIRET = sharedPref.getString("assoSIR", "");
+                resultset = statement.executeQuery("SELECT usr.`PSD`, usr.`FST_NAM`, usr.`LST_NAM`, usr.`EML` FROM USR INNER JOIN usr_has_aso_and_rol ON USR_ROW_IDT = usr.ROW_IDT INNER JOIN aso ON ASO_ROW_IDT = aso.ROW_IDT INNER JOIN rol ON ROL_ROW_IDT = rol.ROW_IDT WHERE aso.`SIR_NBR` = '" + SIRET + "' AND rol.`NAM` = 'MEMBER';");
+            }
 
             while(resultset.next()){
                 listName.add(resultset.getString("FST_NAM"));
