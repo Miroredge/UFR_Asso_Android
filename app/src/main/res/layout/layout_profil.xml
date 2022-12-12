@@ -9,6 +9,30 @@
 
 
     <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="45dp"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="@color/black"
+            >
+
+        </TextView>
+    </TableRow>
+
+    <TableRow
         android:id="@+id/tableaulogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +67,7 @@
         android:id="@+id/avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="130dp"
         android:layout_gravity="center_vertical"
         android:scaleType="centerInside"
         android:layout_centerHorizontal="true"
@@ -56,7 +80,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:text="PSEUDO"
-    android:layout_marginTop="180dp"
+    android:layout_marginTop="260dp"
     android:gravity="center"
     android:textSize="12pt"
 
@@ -78,8 +102,9 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="595dp"
+        android:layout_marginTop="400dp"
         android:gravity="center"
+        android:backgroundTint="@color/bleuCustomFonce"
         android:text="DISCORD" />
 
     <Button
@@ -87,8 +112,9 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="545dp"
+        android:layout_marginTop="340dp"
         android:gravity="center"
+        android:backgroundTint="@color/bleuCustomFonce"
         android:text="Changement MDP" />
 
     <Button
@@ -96,8 +122,9 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="570dp"
         android:gravity="center"
+        android:backgroundTint="@color/bleuCustomFonce"
         android:text="Se déconnecter" />
 
 </RelativeLayout>

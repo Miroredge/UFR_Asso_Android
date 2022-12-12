@@ -135,10 +135,7 @@ public class Profile extends AppCompatActivity {
                 ImageView imageView = (ImageView) findViewById(R.id.avatar);
                 imageView.setImageBitmap(imageBitmap);
 
-
-
-
-
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();
